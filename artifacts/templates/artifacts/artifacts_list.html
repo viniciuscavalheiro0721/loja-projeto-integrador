@@ -1,0 +1,19 @@
+{% extends "artifacts/base.html" %}
+
+{% block title %} Museu La Salle {% endblock %}
+
+{% block content %}
+    {% for artifacts in artifacts_list %}
+        <article>
+            <h2>
+                <a href="{{ artifacts.get_absolute_url }}">
+                    {{ artifacts.name }}
+                </a>
+            </h2>
+            <p class="date">
+                Publicado em {{ artifacts.created }} por {{ artifacts.post_author }}
+            </p>
+            {{ artifacts.description|linebreaks|truncatewords:10 }}
+        </article>
+    {% endfor %}
+{% endblock %}

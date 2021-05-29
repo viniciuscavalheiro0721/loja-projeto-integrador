@@ -1,0 +1,21 @@
+{% extends "artifacts/base.html" %}
+
+{% block title %}{{ artifacts.title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ artifacts.title }}</h2>
+    <p class="date">
+        Publicado em {{ artifacts.created }} por {{ artifacts.post_author }}
+    </p>
+    <p>Descrição: {{ artifacts.description}}</p>
+    <p>Autor: {{ artifacts.author }}</p>
+    <p>Sobre: {{ artifacts.about }}</p>
+    <p>Usabilidade: {{ artifacts.usage }}</p>
+    <p>Estilo: {{ artifacts.style }}</p>
+    <p>Cultura: {{ artifacts.culture }}</p>
+    <p>Etnia: {{ artifacts.ethnicity }}</p>
+    <p>Data de fabricação: {{ artifacts.fabrication_date }}</p>
+    <p>Coleção: {{ artifacts.collection }}</p>
+    <p>Constituido de: {{ artifacts.material }}</p>
+    <img src="{{ artifacts.image }}" alt="images"/>
+{% endblock %}
