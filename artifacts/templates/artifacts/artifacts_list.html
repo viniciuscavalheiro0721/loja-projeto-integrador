@@ -1,19 +1,25 @@
 {% extends "artifacts/base.html" %}
 
-{% block title %} Museu La Salle {% endblock %}
+{% block title %} 
+    Museu La Salle - Artefatos 
+{% endblock %}
 
 {% block content %}
-    {% for artifacts in artifacts_list %}
-        <article>
-            <h2>
-                <a href="{{ artifacts.get_absolute_url }}">
-                    {{ artifacts.name }}
-                </a>
-            </h2>
-            <p class="date">
-                Publicado em {{ artifacts.created }} por {{ artifacts.post_author }}
-            </p>
-            {{ artifacts.description|linebreaks|truncatewords:10 }}
-        </article>
-    {% endfor %}
+    <div class="list-container">
+        {% for artifacts in artifacts_list %}
+        <div class="items-container">
+            <a href="{{ artifacts.get_absolute_url }}">
+                <div class="items-wrap">
+                    <h2>{{ artifacts.name }}</h2>
+                    <h3>Por {{ artifacts.post_author }}</h3>
+                    <p>{{ artifacts.created }}</p>
+                    {% if artifacts.image %}
+                            <img src="{{ artifacts.image.url }}" alt="{{ artifacts.name }}">
+                            {% comment %} {{ artifacts.about|safe|linebreaks|truncatewords:10 }} {% endcomment %}
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
 {% endblock %}

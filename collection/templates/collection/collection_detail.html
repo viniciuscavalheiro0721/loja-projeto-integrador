@@ -1,0 +1,12 @@
+{% extends "collection/base.html" %}
+
+{% block title %} Coleções {% endblock %}
+
+{% block content %}
+    <div class="detail-container">
+        <h2>
+            {{ collection.name }}
+        </h2>
+        <p>{{ collection.description|safe }}</p>
+    </div>
+{% endblock %}
