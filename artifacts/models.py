@@ -4,6 +4,7 @@ from django.urls import reverse
 from tinymce.models import HTMLField
 from ckeditor.fields import RichTextField
 import string, random
+from django.urls import reverse_lazy
 
 # def generateId():
 #     length = 12
@@ -59,3 +60,7 @@ class Artifacts(models.Model):
     def get_absolute_url(self):
         return reverse("artifacts:detail", kwargs={"slug": self.slug})
     
+
+   
+    def joaozinho(self):
+        return reverse("artifacts:form", kwargs={"pk": self.slug})
