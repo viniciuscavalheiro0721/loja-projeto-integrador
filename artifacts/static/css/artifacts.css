@@ -2,15 +2,15 @@ body {
     display: block;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
-    color: rgb(0, 0, 0);
-    background: #ffffff;
+    color: #fff;
+    background: #191919;
     margin: 0 auto;
 }
 .top-banner {
     display: block;
     width: 100%;
     height: 20vh;
-    background-image: url("https://images.unsplash.com/photo-1566722295977-45efd252d476?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80");
+    background-image: url("https://images.unsplash.com/photo-1621886292650-520f76c747d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -18,12 +18,11 @@ body {
     overflow: hidden;
 }
 .top-banner h1 {
-    color: #fff;
     margin: 0 auto;
     vertical-align:bottom;
 }
 .top-banner .top-banner-sillhouette {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.356);
     width: 100%;
     height: 100%;
 }
@@ -43,110 +42,4 @@ body {
 .top-banner .top-banner-menu a:hover {
     /* border-bottom: 1px solid rgba(255, 255, 255, 1); */
     color: #c59804;
-}
-.list-container{
-    display: block;
-}
-.list-container .items-container{
-    display: block;
-    flex-wrap: wrap;
-    /* width: 17%;
-    height: 10%; */
-    /* border: 1px solid #000;
-    width: 15.8%;
-    height: auto; */
-}
-.list-container .items-container .items-wrap{
-    align-items: center;
-    text-align: center;
-}
-.list-container .items-wrap img{
-    max-width: 200px;
-    max-height: 200px;  
-    min-width: 300px;
-    min-height: 200px;  
-}
-.list-container p {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 0.9rem;
-}
-.list-container h2 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: italic;
-    font-size: 1.6rem;
-    text-decoration: none;
-    color: #000;
-}
-.list-container .items-container .items-wrap h3 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 0.8rem;
-    text-decoration: none;
-    font-weight: bold;
-    color: #000;
-}
-/* .list-container h2 :hover {
-    text-decoration: none;
-    color: #c59804;
-} */
-.list-container a {
-    text-decoration: none;
-    color: #000;
-    transition: all ease-in-out 300ms;
-}
-/* .list-container a :hover {
-    text-decoration: none;
-    color: #c59804;
-} */
-.list-container h3 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: italic;
-    font-weight: lighter;
-    font-size: 0.7rem;
-}
-.detail-container {
-    width: 60%;
-    margin: 0 auto;
-    align-items: center;
-    text-align: center;
-}
-.detail-container p {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 0.9rem;
-}
-.detail-container p a {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 0.9rem;
-    color: #c59804;
-    text-decoration: none;
-    transition: all ease-in-out 300ms;
-}
-.detail-container p a :hover {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 0.9rem;
-    color: #c59804;
-    text-decoration: underline;
-}
-.detail-container h2 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: italic;
-    font-size: 2rem;
-}
-.detail-container .author h3 {
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-.detail-container .date h3 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: italic;
-    font-weight: lighter;
-    font-size: 0.7rem;
-}
-.detail-container .image-wrap img{
-    max-width: 600px;
-    max-height: 600px;
-    min-height: auto;
-    min-width: auto;
 }
