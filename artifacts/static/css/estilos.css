@@ -22,12 +22,15 @@ a {
    color: inherit;
 } 
 
+
 /* Layout */
 .s-layout {
    display: flex;
    width: 100%;
    min-height: 100vh;
 }
+
+.row { display: inline-block;}
 
 .s-layout-acervo {
    width: 100%;
