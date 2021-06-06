@@ -3,6 +3,9 @@
    box-sizing: border-box;
 }
 
+/* Deixar assim por enquanto */
+main { margin-bottom: auto; margin-top: 50px;}
+
 body {
    font-family: sans-serif;
    font-size: 1em;
@@ -171,7 +174,7 @@ a {
 
 @media (min-width: 68em) {
    .s-layout__content {
-      margin-left: 15em;
+      /* margin-left: 15em; */
    }
    
    /* Sidebar */
