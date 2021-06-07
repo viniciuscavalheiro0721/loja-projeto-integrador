@@ -1,5 +1,350 @@
-{% extends "artifacts/base.html" %}
 
-{% block conteudo %}
-<h1>TESTE</h1>
-{% endblock conteudo %}
+
+              {% extends "artifacts/base.html" %}
+              {% load static %}
+{% block title %} Museu La Salle {% endblock %}
+
+{% block content %}
+
+
+<!-- Content -->
+<main class="s-layout__content">
+    <div class="container-fluid">
+      <!-- Cadastro Artefato Gestor -->
+      <!-- <button type="button" class="btn float-right botao-cadastrar" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-top: -5px;"><i class="fas fa-plus"></i> Cadastrar Artefato</button> -->
+      <!-- Modal -->
+      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable  modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><strong>Cadastrar Artefato</strong></h5>
+              <i class="far fa-times-circle" data-bs-dismiss="modal" style="cursor: pointer; color: red; margin-top: 10px; font-size: 20px;"></i>
+            </div>
+            <div class="modal-body">
+              <form class="row g-3 needs-validation" novalidate>
+                <!-- cadastro acervo -->
+                <div class="col-md-12">
+                  <h5>Cadastrar Acervo</h5>
+                  <hr/>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01" class="form-label">Objeto</label>
+                  <input type="text" class="form-control" id="validationCustom01" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Coleções</label>
+                  <input type="text" class="form-control" id="validationCustom02" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Nª do Livro Tombo</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                    <div class="invalid-feedback">
+                      Digite um número correto.
+                    </div>
+                  </div>
+                </div>
+                  <div class="col-md-4">
+                  <label for="validationCustom03" class="form-label">Nª de Registro</label>
+                  <input type="text" class="form-control" id="validationCustom03" required>
+                  <div class="invalid-feedback">
+                    Digite um número correto.
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom04" class="form-label">Outros Números</label>
+                  <input type="text" class="form-control" id="validationCustom04" required>
+                  <div class="invalid-feedback">
+                    Digite um número correto.
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom05" class="form-label"><i class="fas fa-location-arrow"></i> Loc. do Museu</label>
+                  <input type="text" class="form-control" id="validationCustom05" required>
+                  <div class="invalid-feedback">
+                    Digite a localização correta.
+                  </div>
+                </div>
+                <!-- cadastro dados técnicos  -->
+                <div class="col-md-12">
+                  <hr/>
+                  <h5>Dados Técnicos</h5>
+                  <hr/>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01" class="form-label">Título</label>
+                  <input type="text" class="form-control" id="validationCustom01" required>
+                </div>
+                <div class="col-md-8">
+                  <label for="validationCustom02" class="form-label">Identificação e Descrição</label>
+                  <input type="text" class="form-control" id="validationCustom02" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Autor/Autoridade</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Descr. Intrínseca</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Matéria Prima</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Assunto/Tema</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Função/Classificação</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Produção Material</label>
+                  <div class="input-group has-validation">
+                    <input type="date" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Estilo,Cult. e Etnia</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Época</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Téc. de Manuf.</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <label for="validationCustomUsername" class="form-label">Inscr./Marcas/Títulos</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Téc. Decorativa:</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Representação/Decoração</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustomUsername" class="form-label">Observações/Outras Características</label>
+                  <div class="input-group has-validation">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                </div>
+                <!-- cadastro procedencia -->
+                <div class="col-md-12">
+                  <hr/>
+                  <h5>Procedência</h5>
+                  <hr/>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Sítio</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label"><i class="fas fa-location-arrow"></i> Localidade</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Município</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Estado</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Região</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">País</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Proprietário</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <!-- cadastro dimensões -->
+                <div class="col-md-12">
+                  <hr/>
+                  <h5>Dimensões</h5>
+                  <hr/>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Comprimento Maior</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Comprimento Menor</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Espessura Maior</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Espessura Menor</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Diâmetro Maior</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Diâmetro Menor</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Altura Maior</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Altura Menor</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Circunferência Maior</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Circunferência Menor</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Profundidade Maior</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Profundidade Menor</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Peso Maior</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">Peso Menor</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="cm" required>
+                  </div>
+                </div>
+                 <div class="col-md-12">
+                  <label for="formFileLg" class="form-label mt-2">Caregar Fotografias</label>
+                  <input class="form-control form-control-lg" id="formFileLg" type="file">
+                </div>
+                <!-- cadastro forma de aquisição -->
+                <div class="col-md-12">
+                  <hr/>
+                  <h5>Forma de Aquisição</h5>
+                  <hr/>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Aquisição</label>
+                  <div class="input-group has-validation">
+                    <input type="date" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Doador</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Último Proprietário</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Personalidade</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername" required>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustomUsername" class="form-label">Outras Informações</label>
+                  <div class="input-group has-validation">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary">Cadastrar</button>
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
+
+          
+{% endblock %}

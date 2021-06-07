@@ -63,4 +63,4 @@ class Artifacts(models.Model):
 
    
     def joaozinho(self):
-        return reverse("artifacts:form", kwargs={"pk": self.slug})
+        return reverse("artifacts:edit-form", kwargs={"id": self.id})

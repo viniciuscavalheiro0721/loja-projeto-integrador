@@ -1,11 +1,51 @@
 
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, CreateView, UpdateView
-
-
-
-
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from .forms import artifactsForm
 from .models import Artifacts
+
+
+def teste(request):
+    return render(request, 'artifacts/artifacts_create_form.html')
+
+@login_required
+def editForm(request,id):
+#  return render(request, 'artifacts/artifacts_create_form.html')
+
+    artifacts = get_object_or_404(Artifacts, pk=id)
+    form = artifactsForm(instance=artifacts)
+
+    if(request.method == 'POST'):
+        form = artifactsForm(request.POST, instance=artifacts)
+
+        if(form.is_valid()):
+            artifacts.save()
+            return redirect('/artifacts')
+        else:
+            return render(request, 'artifacts/artifacts_edit_form.html', {'form': form, 'artifacts': artifacts} )
+    else:
+            return render(request, 'artifacts/artifacts_edit_form.html', {'form': form, 'artifacts': artifacts} )
+
+
+
+# def editTask(request, id):
+#     task = get_object_or_404(Task, pk=id)
+#     form = TaskForm(instance=task)
+
+#     if(request.method == 'POST'):
+#         form = TaskForm(request.POST, instance=task)
+
+#         if(form.is_valid()):
+#             task.save()
+#             return redirect('/')
+#         else:
+#             return render(reuquest, 'task/edittask.html', {'form': form, 'task': task})
+#     else:
+#         return render(request, 'tasks/edittask.html', {'form': form, 'task': task})
+
 
 class ArtifactsListView(ListView):
     model = Artifacts
@@ -20,4 +60,6 @@ class ArtifactsCreateView(CreateView):
 class ArtifactsUpdateView(UpdateView):
     model = Artifacts
     fields = ['slug']
+
+
 
