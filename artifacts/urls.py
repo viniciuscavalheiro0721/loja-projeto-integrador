@@ -1,5 +1,6 @@
 from django.urls import path
 
+
 from . import views
 
 app_name = "artifacts"
@@ -9,7 +10,8 @@ urlpatterns = [
     path("<slug:slug>/", views.ArtifactsDetailView.as_view(), name="detail"),
     path("artifacts/add/", views.ArtifactsCreateView.as_view(), name="create_form"),
     path('artifacts/<int:pk>/', views.ArtifactsUpdateView.as_view(), name='form-update'),
-   
+    path('az', views.teste, name='task-list'),
+
 ]
 
 
