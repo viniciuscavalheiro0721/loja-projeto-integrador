@@ -18,7 +18,18 @@ def editForm(request,id):
     artifacts = get_object_or_404(Artifacts, pk=id)
     form = artifactsForm(instance=artifacts)
 
-    return render(request, 'artifacts/artifacts_edit_form.html', {'form': form, 'artifacts': artifacts} )
+    if(request.method == 'POST'):
+        form = artifactsForm(request.POST, instance=artifacts)
+
+        if(form.is_valid()):
+            artifacts.save()
+            return redirect('/artifacts')
+        else:
+            return render(request, 'artifacts/artifacts_edit_form.html', {'form': form, 'artifacts': artifacts} )
+    else:
+            return render(request, 'artifacts/artifacts_edit_form.html', {'form': form, 'artifacts': artifacts} )
+
+
 
 # def editTask(request, id):
 #     task = get_object_or_404(Task, pk=id)
