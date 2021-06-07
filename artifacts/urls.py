@@ -11,7 +11,7 @@ urlpatterns = [
     path("artifacts/add/", views.ArtifactsCreateView.as_view(), name="create_form"),
     path('artifacts/<int:pk>/', views.ArtifactsUpdateView.as_view(), name='form-update'),
     path('az', views.teste, name='task-list'),
-
+    path('edit/<int:id>/', views.editForm, name='edit-form'),
 ]
 
 
