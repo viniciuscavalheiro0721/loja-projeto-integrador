@@ -66,5 +66,5 @@ class Artifacts(models.Model):
 
    
     def get_main_edit(self):
-        return reverse("artifacts:form-update", kwargs={"pk": self.id})
+        return reverse("artifacts:artifacts-update", kwargs={"pk": self.id})
 

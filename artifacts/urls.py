@@ -11,9 +11,9 @@ urlpatterns = [
     path("", views.ArtifactsListView.as_view(), name="list"),
     path("<slug:slug>/", views.ArtifactsDetailView.as_view(), name="detail"),
     url(r'artifacts/add/$',  views.ArtifactsCreateView.as_view(), name='artifacts_add'),
-    path('artifacts/<pk>', views.ArtifactsUpdateView.as_view(), name='form-update'),
+    path('artifacts/<pk>', views.ArtifactsUpdateView.as_view(), name='artifacts-update'),
     path('az', views.teste, name='task-list'),
-    path('edit/<int:id>/', views.editForm, name='edit-form'),
+ 
 ]
 
 
