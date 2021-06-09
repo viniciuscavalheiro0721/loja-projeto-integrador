@@ -6,12 +6,17 @@
 
 {% block content %}
 <div >
+
     <h1>Editando </h1>
-    <form method="POST">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
         <input type="submit" class="btn btn-success" value="Editar Tarefa">
     </form>
+    
+    <script>  
+        
+        </script>
 </div>
 {% endblock %}
 

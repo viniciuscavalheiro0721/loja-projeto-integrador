@@ -55,11 +55,11 @@ class ArtifactsDetailView(DetailView):
 
 class ArtifactsCreateView(CreateView):
     model = Artifacts
-    fields = ['slug']
+    form_class = artifactsForm
+    success_url = reverse_lazy('artifacts:list')
 
 class ArtifactsUpdateView(UpdateView):
     model = Artifacts
-    fields = ['slug']
-
-
+    form_class = artifactsForm
+    success_url = reverse_lazy('artifacts:list')
 

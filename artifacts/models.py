@@ -13,7 +13,7 @@ from django.urls import reverse_lazy
     #     artifact_id = ''.join(random.choices(string.ascii_uppercase, k=length))
     #     if Artifacts.objects.filter(artifact_id=artifact_id).count() == 0:
     #         break
-    # return artifact_id
+    # return artifact_idfrom django.core.urlresolvers import reverse
 
 class Artifacts(models.Model):
     #artifact_id = models.CharField(max_length=30, default="", unique=True, primary_key=True) #No de registro
@@ -47,10 +47,13 @@ class Artifacts(models.Model):
     last_owner = models.CharField(max_length=30, default="Desconhecido", unique=False)
     personality = models.CharField(max_length=30, default="Desconhecido", unique=False)
     post_author = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/', height_field=None, width_field=None, max_length=100, default='')
+    image = models.ImageField(upload_to='images/', height_field=None, width_field=None, max_length=100)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    
+   
+    
     class Meta:
         ordering = ("-created",)
 
@@ -62,5 +65,6 @@ class Artifacts(models.Model):
     
 
    
-    def joaozinho(self):
-        return reverse("artifacts:edit-form", kwargs={"id": self.id})
+    def get_main_edit(self):
+        return reverse("artifacts:form-update", kwargs={"pk": self.id})
+
