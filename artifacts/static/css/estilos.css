@@ -366,3 +366,38 @@ a {
    border-color: #3d498e;
    color: white;
 }
+
+.fas.fa-search {
+   position: absolute;
+   top: 12px;
+   right: 26px;
+   cursor: pointer;
+}
+
+/* Paginação */
+.pagination {
+   margin-bottom: 20px;
+}
+
+.step-links {
+   position: relative;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.step-links .current {
+   margin-left: 5px;
+   margin-right: 5px;
+}
+
+/* filter */
+.filter-div {
+   margin-bottom: 15px;
+   padding: 0;
+}
+
+#filter {
+   display: inline-block;
+   width: 200px;
+   margin-left: 10px;
+}

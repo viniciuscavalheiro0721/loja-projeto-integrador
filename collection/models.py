@@ -13,8 +13,8 @@ class Collection(models.Model):
     def __str__(self):
         return self.name
 
-    def __str__(self):
-        return self.name
+    def __strid__(self):
+        return self.id
 
     def get_absolute_url(self):
         return reverse("collection:detail", kwargs={"slug": self.slug})

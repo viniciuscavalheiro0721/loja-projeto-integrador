@@ -93,13 +93,14 @@
              <i class="fas fa-atlas" style="margin-left: 10px;"></i><strong><em>Acervo Digital</em></strong>
             </a>
           </li>
+          {% if user.is_authenticated %}
 
           <li>
             <a class="s-sidebar__nav-link" href="artifacts/add/">
              <i class="fas fa-atlas" style="margin-left: 10px;"></i><strong><em>Cadastrar Artefatos (provisorio)</em></strong>
             </a>
           </li>
-   
+          {% endif %}
           </ul>
           </nav>
         </div>
@@ -114,6 +115,7 @@
     </div>
     </section>
   </body>
+  <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/javascript.js' %}"></script>
 
 </html>
