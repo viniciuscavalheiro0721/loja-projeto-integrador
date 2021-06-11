@@ -22,17 +22,19 @@
     </div>
     </div>
     <div class="col-12 filter-div">
-      <span>Filtrar por:</span>
+      <span>Filtrar por Coleção:</span>
       <select name="filter" id="filter" class="form-control">
           <option value="">Escolha uma opção...</option>
-      
-          
+        
+          {% for collection in collection %}
+          <option value="{{ collection.id }}">Coleção: {{ collection.name }}</option>
+    {% endfor %}
+ 
       </select>
   </div>
     {% for artifacts in artifacts_list %}
     
     
- 
         <div class="Card1"> 
           <div class="photo">
             <img src="{{ artifacts.image.url }}" heigh= "100px" width="200px"/>

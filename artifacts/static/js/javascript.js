@@ -17,8 +17,8 @@ $( document ).ready(function() {
         
             $(filter).change(function() {
                 var filter = $(this).val();
-              //  window.location.href = baseUrl + '?filter=' + filter;
-              console.log(filter);
+                window.location.href = baseUrl + '?filter=' + filter;
+            
             });
 
             function convertToSlug(Text)
