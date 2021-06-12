@@ -8,11 +8,39 @@
     <h1>Adicione um novo artefato:</h1>
     <div class="form-group">
         <form method="post" enctype="multipart/form-data">
-
         {% csrf_token %}
-        {{ form }}
-      
-  
+        <p>Nome: {{ form.name }}</p>
+        <p>Código interno: {{ form.slug }}</p>
+        <p>Descrição: {{ form.description}}</p>
+        <p>Autor: {{ form.author }}</p>
+        <p>Sobre: {{ form.about|safe }}</p>
+        <p>Usabilidade: {{ form.usage }}</p>
+        <p>Estilo: {{ form.style }}</p>
+        <p>Cultura: {{ form.culture }}</p>
+        <p>Etnia: {{ form.ethnicity }}</p>
+        <p>Idade: {{ form.age }}</p>
+        <p>Inscrições: {{ form.inscriptions }}</p>
+        <p>Data de fabricação: {{ form.fabrication_date }}</p>
+        <p>Número do livro tombo: {{ form.heritage_id }}</p>
+        <p>Fabricação: {{ form.manufacture }}</p>
+        <p>Coleção: {{ form.collection }}</p>
+        <p>Constituido de: {{ form.material }}</p>
+        <p>Decoração: {{ form.decoration }}</p>
+        <p>Comprimento: {{ form.length }}</p>
+        <p>Largura: {{ form.width }}</p>
+        <p>Diâmetro: {{ form.diameter }}</p>
+        <p>Altura: {{ form.height }}</p>
+        <p>Circunferência: {{ form.circumference }}</p>
+        <p>Profundidade: {{ form.depth }}</p>    
+        <p>Peso: {{ form.weight }}</p>
+        <p>Proprietário: {{ form.owner }}</p>
+        <p>Data de aquisição: {{ form.acqusition_date }}</p>
+        <p>Doador: {{ form.donor }}</p>
+        <p>Último dono: {{form.last_owner }}</p>
+        <p>Caráter: {{ form.personality }}</p>
+        <p>Caráter: {{ form.post_author }}</p>
+        <p>Atualizado em: {{ form.image }}</p>
+        <p>Atualizado em: {{ artifacts.updated }}</p>
         <input type="submit" class="btn btn-success" value="Salvar">
     </form>
   </div>
