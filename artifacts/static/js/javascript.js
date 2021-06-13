@@ -5,7 +5,7 @@ $( document ).ready(function() {
             var baseUrl   = 'http://127.0.0.1:8000/artifacts';
             var filter     = $('#filter');
             var searchBtn = $('#search-btn');
-          
+            var checkbox = $('#checkbox');
           
             
 
@@ -17,10 +17,14 @@ $( document ).ready(function() {
         
             $(filter).change(function() {
                 var filter = $(this).val();
-                window.location.href = baseUrl + '?filter=' + filter;
-            
+                 window.location.href = baseUrl + '?filter=' + filter + "&3";
+
             });
 
+            // $(checkbox).change(function() {
+            //     var checkbox = $(this).val();
+            //     btnsubmit.submit();
+            // });
             function convertToSlug(Text)
         {
             return Text
@@ -30,7 +34,7 @@ $( document ).ready(function() {
                 ;
         }
         
-        
+      
     document.getElementById("id_name").onchange = function(){
 
         

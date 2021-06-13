@@ -6,9 +6,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import artifactsForm
+from .forms import CountryForm
 from .models import Artifacts
 from collection.models import Collection
 from django.core.paginator import Paginator
+from django.template import RequestContext
 @login_required
 def teste(request):
     return render(request, 'artifacts/artifacts_create_form.html')
@@ -27,35 +29,71 @@ def editForm(request,id):
             artifacts.save()
             return redirect('/artifacts')
         else:
-            return render(request, 'artifacts/artifacts_edit_form.html', {'form': form, 'artifacts': artifacts} )
+              return render(request, 'artifacts/artifacts_edit_form.html', {'form': form, 'artifacts': artifacts} )
     else:
             return render(request, 'artifacts/artifacts_edit_form.html', {'form': form, 'artifacts': artifacts} )
 
-# from django.shortcuts import render, get_object_or_404, redirect
-# from django.contrib.auth.decorators import login_required
-# from django.core.paginator import Paginator
-# from django.http import HttpResponse
-# from .forms import TaskForm
-# from django.contrib import messages
-# import datetime
 
-# from .models import Task
 
+def addlogic(request):
+ search = request.POST.get('search')
+ some_var = request.POST.getlist('checks[]')
+ 
+ collection = Collection.objects.all()
+
+ if search and some_var:
+    artifacts_list = Artifacts.objects.filter(collection__in=some_var, name__icontains=search )  
+
+ elif some_var:
+    artifacts_list = Artifacts.objects.filter(collection__in=some_var) 
+    # data=''
+    # if(len(search)>0):
+    #          data=search 
+    #          return HttpResponse(data)
+    
+        
+ elif search:
+   artifacts_list = Artifacts.objects.filter( name__icontains=search )  
+
+ else:
+     return HttpResponse("not checked")
+
+
+
+
+#  if some_var:
+
+#     # data=''
+#     # if(len(search)>0):
+#     #          data=search 
+#     #          return HttpResponse(data)
+#     artifacts_list = Artifacts.objects.filter(collection__in=some_var )
+        
+#  if search:
+#     artifacts_list = Artifacts.objects.filter(collection__in=some_var, name__icontains=search )  
+
+ paginator = Paginator(artifacts_list, 9)
+ page = request.GET.get('page')
+ artifacts_list = paginator.get_page(page)
+ return render(request, 'artifacts/artifacts_list.html', {'artifacts_list':artifacts_list, 'collection':collection })
 
 @login_required
 def ArtifactsList(request):
 
     search = request.GET.get('search')
     filter = request.GET.get('filter')
+    check = request.GET.get('checks[]')
     collection = Collection.objects.all()
     
     if search:
         artifacts_list = Artifacts.objects.filter(name__icontains=search)
     elif filter:
-        artifacts_list = Artifacts.objects.filter(collection=filter)
+        artifacts_list = Artifacts.objects.filter(collection=filter )
+    elif check:
+         artifacts_list = Artifacts.objects.filter(collection='checks[]' )
     else:
         artifacts_list_full = Artifacts.objects.all()
-        paginator = Paginator(artifacts_list_full, 3)
+        paginator = Paginator(artifacts_list_full, 9)
         page = request.GET.get('page')
         artifacts_list = paginator.get_page(page)
 
@@ -76,4 +114,8 @@ class ArtifactsUpdateView(LoginRequiredMixin, UpdateView):
     model = Artifacts
     form_class = artifactsForm
     success_url = reverse_lazy('artifacts:list')
+
+@login_required
+def helloWorld(request):
+    return HttpResponse('Hello World!')
 

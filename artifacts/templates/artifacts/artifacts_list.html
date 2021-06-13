@@ -13,25 +13,27 @@
   
       
 <div class="row">
-  <div>
-    <div class="col-9 search-div">
-      <form method="GET" id="search-form">
-          <input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome do artefato para buscar..." value="{{ request.GET.search }}">
-          <i class="fas fa-search" id="search-btn"></i>
-      </form>
+
+
+<div>
+    <form method="post" action="addlogic">
+      {% csrf_token %}
+      <div class="col-9 search-div"></div>
+      <input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome do artefato para buscar..." >
+    
+  
+    <li>Coleções Filtro</li>
+     {% for collection in collection %}
+     <li> <input type="checkbox" name="checks[]" value="{{ collection.id }}" id=checkbox />{{ collection.name }}</li>
+{% endfor %}
+
+      <input type="submit" name="btnsubmit" value="Filtrar">
+     </form>
+  
     </div>
-    </div>
-    <div class="col-12 filter-div">
-      <span>Filtrar por Coleção:</span>
-      <select name="filter" id="filter" class="form-control">
-          <option value="">Escolha uma opção...</option>
-        
-          {% for collection in collection %}
-          <option value="{{ collection.id }}">Coleção: {{ collection.name }}</option>
-    {% endfor %}
- 
-      </select>
-  </div>
+
+
+
     {% for artifacts in artifacts_list %}
     
     
