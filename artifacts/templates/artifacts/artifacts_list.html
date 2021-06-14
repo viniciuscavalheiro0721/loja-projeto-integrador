@@ -14,30 +14,29 @@
       
 <div class="row">
 
-
-<div>
+  
+<div class="container">
+  <div class="three">
+    <h1 class="mb-5">Artefatos</h1>
+  </div>
     <form method="post" action="addlogic">
       {% csrf_token %}
       <div class="col-9 search-div"></div>
-      <input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome do artefato para buscar..." >
-    
-  
+      <label>Busque por algum artefato</label>
+      <input class="form-control mb-3" type="text" id="search" name="search" placeholder="buscar..." style="padding-top: 10px; padding-bottom: 10px;"/>
     <li>Coleções Filtro</li>
      {% for collection in collection %}
-     <li> <input type="checkbox" name="checks[]" value="{{ collection.id }}" id=checkbox />{{ collection.name }}</li>
-{% endfor %}
-
-      <input type="submit" name="btnsubmit" value="Filtrar">
+     <li><input type="checkbox" name="checks[]" value="{{ collection.id }}" class="form-check-input ml-5 " id=checkbox />{{ collection.name }}</li>
+    {% endfor %}
+      <input type="submit" class="btn btn-secondary botao-cadastrar mt-3 mb-3" name="btnsubmit" value="Filtrar">
      </form>
   
-    </div>
-
    
-    {% for artifacts in artifacts_list %}
-    
-  
 
-    
+
+    {% for artifacts in artifacts_list %}
+    <div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="Card1"> 
           <div class="photo">
             <img src="{{ artifacts.image.url }}" heigh= "100px" width="200px"/>
@@ -59,14 +58,13 @@
               {% if user.is_authenticated %}
               <a  href="{{artifacts.get_main_edit}}"><button type="button" class="btn float-left botao-cadastrar" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-top: -50px;"><i class="fas fa-plus"></i> Editar Artefato</button></a> 
           {% endif %}
-         
               <a href="{{artifacts.get_absolute_url}}">Detalhes</a>
 
             </div>
           </div>
-      
- 
+        </div>
 
+      </div>
 
 
 
@@ -92,7 +90,7 @@
     </div>
 
 </div>
-
+</div>
 </section>
 
 
