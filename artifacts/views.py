@@ -54,9 +54,15 @@ def addlogic(request):
         
  elif search:
    artifacts_list = Artifacts.objects.filter( name__icontains=search )  
+  # if (len(artifacts_list) <= 0):
+   # return HttpResponse("deu certp")
 
  else:
-     return HttpResponse("not checked")
+        artifacts_list_full = Artifacts.objects.all()
+        paginator = Paginator(artifacts_list_full, 9)
+        page = request.GET.get('page')
+        artifacts_list = paginator.get_page(page)
+        return render(request, 'artifacts/artifacts_list.html', {'artifacts_list':artifacts_list, 'collection':collection })
 
 
 
