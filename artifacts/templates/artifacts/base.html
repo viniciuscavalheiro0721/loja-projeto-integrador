@@ -57,7 +57,6 @@
       </div>
     </nav>
     <section>
-      <aside>
       <div class="s-layout">
         <!-- Sidebar -->
         <div class="s-layout__sidebar">
@@ -85,7 +84,7 @@
             </a>
           </li>
           <li>
-           <a class="s-sidebar__nav-link" href="colecoes.html">
+           <a class="s-sidebar__nav-link" href="../collection">
               <i class="fas fa-folder-open" style="margin-left: 10px;"></i><strong><em>Coleções</em></strong>
            </a>
           </li>
@@ -108,13 +107,12 @@
      
    
       <!-- Content -->
-      <main class="s-layout__content">
+      <main class="s-layout__content" style="margin-left:20em">
 
         {% block content %}  {% endblock %}
     
       </main>
     </div>
-  </aside>
     </section>
   </body>
   <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
