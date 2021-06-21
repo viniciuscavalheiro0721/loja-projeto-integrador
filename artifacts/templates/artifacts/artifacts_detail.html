@@ -3,43 +3,109 @@
 <!-- {% block title %}{{ artifacts.title }}{% endblock %} -->
 
 {% block content %}
-<div>
+<div class="container">
+<form class="row g-3">
     <h2>{{ artifacts.title }}</h2>
     <p class="date">
-        Publicado em {{ artifacts.created }} por {{ artifacts.post_author }}
+        <h4>Publicado em {{ artifacts.created }} por: <strong>{{ artifacts.post_author }} </strong></h4>
     </p>
-    <p>Nome: {{ artifacts.name }}</p>
-    <p>Código interno: {{ artifacts.slug }}</p>
-    <p>Descrição: {{ artifacts.description}}</p>
-    <p>Autor: {{ artifacts.author }}</p>
-    <p>Sobre: {{ artifacts.about|safe }}</p>
-    <p>Usabilidade: {{ artifacts.usage }}</p>
-    <p>Estilo: {{ artifacts.style }}</p>
-    <p>Cultura: {{ artifacts.culture }}</p>
-    <p>Etnia: {{ artifacts.ethnicity }}</p>
-    <p>Idade: {{ artifacts.age }}</p>
-    <p>Inscrições: {{ artifacts.inscriptions }}</p>
-    <p>Data de fabricação: {{ artifacts.fabrication_date }}</p>
-    <p>Número do livro tombo: {{ artifacts.heritage_id }}</p>
-    <p>Fabricação: {{ artifacts.manufacture }}</p>
-    <p>Coleção: {{ artifacts.collection }}</p>
-    <p>Constituido de: {{ artifacts.material }}</p>
-    <p>Decoração: {{ artifacts.decoration }}</p>
-    <p>Comprimento: {{ artifacts.length }}</p>
-    <p>Largura: {{ artifacts.width }}</p>
-    <p>Diâmetro: {{ artifacts.diameter }}</p>
-    <p>Altura: {{ artifacts.height }}</p>
-    <p>Circunferência: {{ artifacts.circumference }}</p>
-    <p>Profundidade: {{ artifacts.depth }}</p>    
-    <p>Peso: {{ artifacts.weight }}</p>
-    <p>Proprietário: {{ artifacts.owner }}</p>
-    <p>Data de aquisição: {{ artifacts.acqusition_date }}</p>
-    <p>Doador: {{ artifacts.donor }}</p>
-    <p>Último dono: {{artifacts.last_owner }}</p>
-    <p>Caráter: {{ artifacts.personality }}</p>
-    <p>Atualizado em: {{ artifacts.updated }}</p>
+    <p><img src="{{ artifacts.image.url }}" alt="Image" height="50%" width="50%"/></p>
 
-    <img src="{{ artifacts.image.url }}" alt="Image" height="30%" width="30%"/>
+    <div class="row mt-4" style="display: table-cell;">
+        <div class="col">
+            <p><strong>Nome:</strong>{{ artifacts.name }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Código interno: </strong>{{ artifacts.slug }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Descrição: </strong>{{ artifacts.description}}</p>
+        </div>
+        <div class="col">
+            <p><strong>Autor: </strong>{{ artifacts.author }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Usabilidade: </strong>{{ artifacts.usage }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Estilo: </strong>{{ artifacts.style }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Cultura: </strong>{{ artifacts.culture }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Etnia: </strong>{{ artifacts.ethnicity }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Idade: </strong>{{ artifacts.age }}</p>
+        </div>
+    </div>
+
+    <div class="row" style="display: table-cell;">
+        <div class="col">
+            <p><strong>Inscrições: </strong>{{ artifacts.inscriptions }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Data de fabricação: </strong>{{ artifacts.fabrication_date }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Número do livro tombo: </strong>{{ artifacts.heritage_id }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Fabricação: </strong>{{ artifacts.manufacture }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Coleção: </strong>{{ artifacts.collection }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Constituido de: </strong>{{ artifacts.material }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Decoração: </strong>{{ artifacts.decoration }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Comprimento: </strong>{{ artifacts.length }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Largura: </strong>{{ artifacts.width }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Diâmetro: </strong>{{ artifacts.diameter }}</p>
+        </div>
+    </div>
+    <div class="row" style="display: table-cell;">
+        <div class="col">
+            <p><strong>Altura: </strong>{{ artifacts.height }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Circunferência: </strong>{{ artifacts.circumference }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Profundidade: </strong>{{ artifacts.depth }}</p>  
+        </div> 
+        <div class="col"> 
+            <p><strong>Peso: </strong>{{ artifacts.weight }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Proprietário: </strong>{{ artifacts.owner }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Data de aquisição: </strong>{{ artifacts.acqusition_date }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Doador: </strong>{{ artifacts.donor }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Último dono: </strong>{{artifacts.last_owner }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Caráter: </strong>{{ artifacts.personality }}</p>
+        </div>
+        <div class="col">
+            <p><strong>Atualizado em: </strong>{{ artifacts.updated }}</p>
+        </div>
+    </div>
+</form>
 </div>
     
 {% endblock %}
