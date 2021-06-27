@@ -20,9 +20,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('index.urls', namespace="index")),
     path('artifacts/', include("artifacts.urls", namespace="artifacts")),
     path('collection/', include("collection.urls", namespace="collection")),
-    path('tinymce/', include('tinymce.urls')),    
+    path('materials/', include("materials.urls", namespace="materials")),
+    path('aboutus/', include("aboutus.urls", namespace="aboutus")),
+    path('contact/', include("contact.urls")),
+    path('tinymce/', include('tinymce.urls')),   
 ]
 
 if settings.DEBUG: # new

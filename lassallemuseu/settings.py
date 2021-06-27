@@ -15,6 +15,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+DIRNAME = os.path.abspath(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,6 +42,9 @@ INSTALLED_APPS = [
     'artifacts.apps.ArtifactsConfig',
     'collection.apps.CollectionConfig',
     'materials.apps.MaterialsConfig',
+    'index.apps.IndexConfig',
+    'contact.apps.ContactConfig',
+    'aboutus.apps.AboutusConfig',
     'tinymce',
     'ckeditor',
 ]
@@ -60,7 +64,7 @@ ROOT_URLCONF = 'lassallemuseu.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,3 +137,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #APPEND_SLASH=False
+
+
+#MAIL VALIDATIONS
+DEFAULT_FROM_EMAIL = 'teste@teste.com'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
