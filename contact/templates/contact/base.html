@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+   <!--  <script src="assets/js/querys.js"></script> -->
+    <!-- Título do da página -->
+    <title>Home | Museu</title>
+  </head>
+  <!-- Corpo da página -->
+  <body>
+    <!-- Cabeçalho -->
+    <nav class="navbar navbar-dark p-0 flex-md-nowrap shadow" style="background-color: #1d4482;">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#" style="visibility: hidden !important;">Museu Home</a>
+      <input type="text" class="form-control form-control-primary w-75" placeholder="Procure por algo...">
+     <a  href="/admin"><button type="button" class="btn btn-secondary botao-login" data-bs-target="#staticBackdrop"><i class="fas fa-user" style="margin-right: 10px;"></i>Meu Login</button></a>
+     
+
+    
+     <!-- <button type="button" class="btn btn-secondary botao-login" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-user" style="margin-right: 10px;"></i>Meu Login</button> -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel"><i class="fas fa-lock" style="color: #0f2241"></i> Painel Administrativo</h5>
+              <i class="far fa-times-circle" data-bs-dismiss="modal" style="cursor: pointer; color: red; margin-top: 10px; font-size: 20px;"></i>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="email" class="form-label"><strong>Email</strong></label>
+                <input type="email" class="form-control" id="email" placeholder="Seu email">
+              </div>
+              <div class="mb-3">
+                <label for="senha" class="form-label"><strong>Senha</strong></label>
+                <input type="password" class="form-control" id="senha" placeholder="Sua senha">
+              </div>
+              <div class="mb-2 ml-1">
+                <a href=""><p>Esqueceu a senha?</p></a>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary botao-logar"  style="color: #1d4482"><strong>Logar</strong></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section>
+      <div class="s-layout">
+        <!-- Sidebar -->
+        <div class="s-layout__sidebar">
+          <a class="s-sidebar__trigger" href="#0">
+            <i class="fa fa-bars"></i>
+          </a>
+          <nav class="s-sidebar__nav">
+            <img  src="{% static 'imagens/sidebar.png' %}" height="100%">
+          <ul>
+          <li style="margin-top: -35px;">
+              <img src="{% static 'imagens/logo2.png' %}" width="100%" height="100%">
+            
+          </li>
+       
+
+          <li>
+          <li>
+            <a class="s-sidebar__nav-link " href="/">
+              <i class="fa fa-home" style="margin-left: 10px;"></i><strong><em>Principal</em></strong>
+             </a>
+          </li>
+          <li>
+            <a class="s-sidebar__nav-link" href="/artifacts">
+              <i class="fas fa-list" style="margin-left: 10px;"></i><strong><em>Artefatos</em></strong>
+            </a>
+          </li>
+          <li>
+           <a class="s-sidebar__nav-link" href="/collection/">
+              <i class="fas fa-folder-open" style="margin-left: 10px;"></i><strong><em>Coleções</em></strong>
+           </a>
+          </li>
+          <li>
+            <a class="s-sidebar__nav-link" href="/materials/">
+             <i class="fas fa-atlas" style="margin-left: 10px;"></i><strong><em>Materiais</em></strong>
+            </a>
+          </li>
+          {% if user.is_authenticated %}
+
+          <li>
+            <a class="s-sidebar__nav-link" href="artifacts/add/">
+             <i class="fas fa-atlas" style="margin-left: 10px;"></i><strong><em>Cadastrar Artefatos (provisorio)</em></strong>
+            </a>
+          </li>
+          {% endif %}
+          </ul>
+          </nav>
+        </div>
+     
+   
+      <!-- Content -->
+      <main class="s-layout__content">
+
+        {% block content %}  {% endblock %}
+    
+      </main>
+    </div>
+    </section>
+  </body>
+  <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/javascript.js' %}"></script>
+
+</html>
