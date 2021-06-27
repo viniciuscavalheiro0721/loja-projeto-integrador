@@ -3,5 +3,5 @@ from .models import Collection
 
 @admin.register(Collection)
 class CollectionAdmin(admin.ModelAdmin):
-    list_display = ("name","description")
+    list_display = ("name","description", "image")
     prepopulated_fields = {"slug": ("name",)}

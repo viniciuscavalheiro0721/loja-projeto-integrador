@@ -9,6 +9,7 @@ class Collection(models.Model):
     name = models.CharField(max_length=30, unique=True)
     slug = models.SlugField(max_length=50, default="", unique=True)
     description = RichTextField(blank=True)
+    image = models.ImageField(upload_to='images/', height_field=None, width_field=None, max_length=100, default=0)
 
     def __str__(self):
         return self.name

@@ -1,4 +1,4 @@
-{% extends "collection/base.html" %}
+{% extends "materials/base.html" %}
 
 {% block title %} 
     Museu La Salle - Coleções
@@ -6,11 +6,11 @@
 
 {% block content %}
     <div class="list-container">
-        {% for collection in collection_list %}
+        {% for materials in materials_list %}
             <div class="items-container">
-                <a href="{{ collection.get_absolute_url }}">
+                <a href="{{ materials.get_absolute_url }}">
                     <div class="items-wrap">
-                        <h2>{{ collection.name }}</h2>
+                        <h2>{{ materials.name }}</h2>
                     </div>
                 </a>
             </div>
