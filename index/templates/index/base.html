@@ -18,17 +18,122 @@
   </head>
   <!-- Corpo da página -->
   <body>
-    <!-- Cabeçalho -->
-    <nav class="navbar navbar-dark p-0 flex-md-nowrap shadow" style="background-color: #1d4482;">
+	<!-- CABEÇALHO -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style=" height: 126px !important; background-color: #dfdfdf; opacity: 0.8; -webkit-box-shadow: 0px 3px 4px -1px #F2F0F0; 
+  box-shadow: 0px 3px 4px -1px #F2F0F0;">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img id="imagemMuseu"  src="{% static 'imagens/logo2.png' %}" alt="logo museu" style="opacity: none !important;"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link menu-navbar" href="/index" ><strong>Home</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu-navbar" href="#"><strong>Sobre Nós</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu-navbar" href="/artifacts"><strong>Artefatos</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu-navbar" href="acervo_digital.html"><strong>Acervo Digital</strong></a>
+          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item cor-letras-menu">
+              <a class="nav-link menu-navbar" href="artifacts/add/"><strong>Cadastrar Artefato</strong></a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="{% static 'imagens/carrossel2.jpg' %}" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="font-size: 65px;"><strong style="text-shadow: 0.1em 0.1em 0.2em gainsboro">Museu <span style="color: #25407d;">La Salle</span></strong></h5>
+          <p><strong style="font-size: 26px; text-shadow: 0.1em 0.1em 0.2em gainsboro">Aqui você encontra todos nossos <span style="color: #25407d;">artefatos</span> e <span style="color: #25407d;">coleções</span> que o museu atualmente abriga.</strong></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{% static 'imagens/carrossel2.jpg' %}" alt="Second slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Slider One Item</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{% static 'imagens/carrossel3.jpg' %}" alt="Third slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Slider One Item</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  
+  
+  
+
+
+
+	<!-- <section>
+		<div class="container mt-5">
+			<nav id="menuHeader" class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="container mt-2 mb-2" style="height: 65px !important;">
+					<a href="/index"><img id="imagemMuseu" class="imagem-index" src="{% static 'imagens/logo2.png' %}" alt="logo museu"></a>
+					 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		 				 	<span class="navbar-toggler-icon"></span>
+						</button>
+					<div class="navbar-collapse collapse" id="navbarNavDropdown">			 	
+						<ul class="navbar-nav" style="margin-left: 15px;">
+							<li class="nav-item home">
+								<a class="nav-link home2" href="index.html" alt="home museu">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link cabecalho-letras" href="#"alt="sobre o museu">Sobre Nós</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link cabecalho-letras" href="/artifacts" alt="artefatos museu">Artefatos</a>
+							</li>
+	 						<li class="nav-item">
+								<a class="nav-link cabecalho-letras" href="acervo_digital.html" alt="acervo digital">Acervo Digital</a>
+							</li>
+              {% if user.is_authenticated %}
+							  <li class="nav-item">
+	 						   <a class="nav-link cabecalho-letras" href="artifacts/add/" alt="cadastrar artefatos">Cadastrar Artefatos</a>	  
+	 						 </li>
+            {% endif %}
+						</ul>
+					</div>	
+				</div>		
+			</nav>
+		</div>
+	</section> -->
+
+    <!-- <nav class="navbar navbar-dark p-0 flex-md-nowrap shadow" style="background-color: #1d4482;">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#" style="visibility: hidden !important;">Museu Home</a>
       <input type="text" class="form-control form-control-primary w-75" placeholder="Procure por algo...">
      <a  href="/admin"><button type="button" class="btn btn-secondary botao-login" data-bs-target="#staticBackdrop"><i class="fas fa-user" style="margin-right: 10px;"></i>Meu Login</button></a>
-     
 
-    
-     <!-- <button type="button" class="btn btn-secondary botao-login" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-user" style="margin-right: 10px;"></i>Meu Login</button> -->
-
-      <!-- Modal -->
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -55,10 +160,14 @@
           </div>
         </div>
       </div>
-    </nav>
-    <section>
+    </nav> -->
+
+
+    <!-- Sidebar -->
+
+    <!-- <section>
       <div class="s-layout">
-        <!-- Sidebar -->
+       
         <div class="s-layout__sidebar">
           <a class="s-sidebar__trigger" href="#0">
             <i class="fa fa-bars"></i>
@@ -74,23 +183,23 @@
 
           <li>
           <li>
-            <a class="s-sidebar__nav-link sidebar-selecionado" href="/">
+            <a class="s-sidebar__nav-link " href="index.html">
               <i class="fa fa-home" style="margin-left: 10px;"></i><strong><em>Principal</em></strong>
              </a>
           </li>
           <li>
-            <a class="s-sidebar__nav-link" href="/artifacts">
+            <a class="s-sidebar__nav-link sidebar-selecionado" href="/artifacts">
               <i class="fas fa-list" style="margin-left: 10px;"></i><strong><em>Artefatos</em></strong>
             </a>
           </li>
           <li>
-           <a class="s-sidebar__nav-link" href="/collection/">
+           <a class="s-sidebar__nav-link" href="../collection">
               <i class="fas fa-folder-open" style="margin-left: 10px;"></i><strong><em>Coleções</em></strong>
            </a>
           </li>
           <li>
-            <a class="s-sidebar__nav-link" href="/materials/">
-             <i class="fas fa-atlas" style="margin-left: 10px;"></i><strong><em>Materiais</em></strong>
+            <a class="s-sidebar__nav-link" href="acervo_digital.html">
+             <i class="fas fa-atlas" style="margin-left: 10px;"></i><strong><em>Acervo Digital</em></strong>
             </a>
           </li>
           {% if user.is_authenticated %}
@@ -104,16 +213,126 @@
           </ul>
           </nav>
         </div>
-     
+      </section> -->
    
       <!-- Content -->
-      <main class="s-layout__content">
+      <main class="container">
 
         {% block content %}  {% endblock %}
     
       </main>
-    </div>
-    </section>
+      <footer class="footer-section mt-5">
+        <div class="container">
+            <div class="footer-cta pt-5 pb-5">
+                <div class="row">
+                    <div class="col-4 col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="cta-text">
+                                <h4 style="color: #4d67ab">Endereço</h4>
+                                <span>Av. Victor Barreto, 2288 - Centro, Canoas</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4  col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-phone"></i>
+                            <div class="cta-text">
+                                <h4 style="color: #4d67ab">Nos ligue</h4>
+                                <span>+55 (51) 3476-8500</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="far fa-envelope-open"></i>
+                            <div class="cta-text">
+                                <h4 style="color: #4d67ab">Nosso email</h4>
+                                <span>atendimento@unilasalle.edu.br</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="{% static 'imagens/logo2.png' %}" class="img-fluid" alt="logo"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p>Museu La Salle com artefatos e coleções históricas para você voltar ao passado de forma virtual.</p>
+                            </div>
+                            <div class="footer-social-icon">
+                                <span style="color: #4d67ab">
+                                  Nos siga
+                                </span>
+                                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3 style="color: #4d67ab">Links úteis</h3>
+                            </div>
+                            <ul>
+                              <li><a href="#">Home</a></li>
+                              <li><a href="#">Sobre nós</a></li>
+                              <li><a href="/artifacts">Artefatos</a></li>
+                              <li><a href="#">Coleções</a></li>
+                              <li><a href="#">Acervo Digital</a></li>
+                              <li><a href="#">Contato</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3 style="color: #4d67ab">Se inscreva !</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>Entre em contato com a gente! Escreva seu email para contato.</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Seu email">
+                                    <button><i class="fab fa-telegram-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2021, Todos os direitos Reservados La Salle</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Sobre nós</a></li>
+                                <li><a href="/artifacts">Artefatos</a></li>
+                                <li><a href="#">Coleções</a></li>
+                                <li><a href="#">Acervo Digital</a></li>
+                                <li><a href="#">Contato</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
   </body>
   <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/javascript.js' %}"></script>
