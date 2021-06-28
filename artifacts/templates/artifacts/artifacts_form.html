@@ -9,158 +9,158 @@
     <h1 class="mb-5">Adicionar/Editar Artefato:</h1>
   </div>
     <div class="form-group">
-        <form method="post" enctype="multipart/form-data" class="row g-4">
+        <form method="post" enctype="multipart/form-data" class="row row2 g-4">
         {% csrf_token %}
         <!-- cadastro Dados Técnicos -->
-       <div class="row col-12">
+       <div class="row row2 col-12">
         <hr/>
         <h4>Dados Técnicos</h4>
         <hr/>
       </div>
-        <div class="row mr-4">
+        <div class="row row2 mr-4">
             <p style="margin-bottom: 0;"><strong>Nome</strong></p> 
             {{ form.name }}
           </div>
-            <div class="row mr-4">
+            <div class="row row2 mr-4">
             <p style="margin-bottom: 0; margin-top: 12px;"><strong>Código interno</strong></p> 
             {{ form.slug }}
             </div>
-            <div class="row mr-4">
+            <div class="row row2 mr-4">
             <p style="margin-bottom: 0; margin-top: 12px;"><strong>Descrição</strong></p>
             {{ form.description}}
           </div> 
-        <div class="row mr-4">
+        <div class="row row2 mr-4">
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Usabilidade</strong></p>
           {{ form.usage }}
         </div>
         <!-- cadastro procedencia -->
-        <div class="row col-12">
+        <div class="row row2 col-12">
           <hr/>
           <h4>Procedência</h4>
           <hr/>
         </div>
-        <div class="row mr-4">
+        <div class="row row2 mr-4">
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Proprietário</strong></p>
           {{ form.owner }}
         </div>
        
-        <div class="row mr-4">
+        <div class="row row2 mr-4">
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Estilo</strong></p> 
           {{ form.style }}
         </div>
-        <div class="row mr-4">
+        <div class="row row2 mr-4">
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Cultura</strong></p> 
           {{ form.culture }}
         </div>
 
-        <div class="row mr-4">
+        <div class="row row2 mr-4">
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Etnia</strong></p> 
           {{ form.ethnicity }}
         </div>
-        <div class="row mr-4">
+        <div class="row row2 mr-4">
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Idade</strong></p>
           {{ form.age }}
         </div>
-        <div class="row mr-4">
+        <div class="row row2 mr-4">
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Inscrições</strong></p> 
           {{ form.inscriptions }}
         </div>
-        <div class="row mr-4">
+        <div class="row row2 mr-4">
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Data de fabricação</strong></p> 
           {{ form.fabrication_date }}
         </div>
-        <div class="row mr-4">
+        <div class="row row2 mr-4">
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Número do livro tombo</strong></p> 
           {{ form.heritage_id }}
         </div>
    
-        <div class="row mr-4">
+        <div class="row row2 mr-4">
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Fabricação</strong></p> 
           {{ form.manufacture }}
         </div>
-        <div class="row mr-4">
+        <div class="row row2 mr-4">
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Decoração</strong></p> 
           {{ form.decoration }}
         </div>
        <!-- cadastro dimensão -->
-       <div class="row col-12">
+       <div class="row row2 col-12">
         <hr/>
         <h4>Dimensões</h4>
         <hr/>
       </div>
-      <div class="row mr-4">
+      <div class="row row2 mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Comprimento</strong></p>
         {{ form.length }}
       </div>
-      <div class="row mr-4">
+      <div class="row row2 mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Largura</strong></p> 
         {{ form.width }}
       </div>
-      <div class="row mr-4">
+      <div class="row row2 mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Diâmetro</strong></p>
         {{ form.diameter }}
       </div>
-      <div class="row mr-4">
+      <div class="row row2 mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Altura</strong></p> 
         {{ form.height }}
       </div>
 
-      <div class="row mr-4">
+      <div class="row row2 mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Circunferência</strong></p> 
         {{ form.circumference }}
       </div>
-      <div class="row mr-4">
+      <div class="row row2 mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Profundidade</strong></p> 
         {{ form.depth }}
       </div> 
-      <div class="row mr-4">   
+      <div class="row row2 mr-4">   
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Peso</strong></p> 
         {{ form.weight }}
       </div>
        <!-- cadastro aquisição -->
-       <div class="row col-12">
+       <div class="row row2 col-12">
         <hr/>
         <h4>Aquisição</h4>
         <hr/>
       </div>
-      <div class="row mr-4">
+      <div class="row row2 mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Data de aquisição</strong></p>
         {{ form.acqusition_date }}
       </div>
-      <div class="row mr-4">
+      <div class="row row2 mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Doador</strong></p> 
         {{ form.donor }}
       </div>
-      <div class="row mr-4">
+      <div class="row row2 mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Último dono</strong></p> 
         {{form.last_owner }}
       </div>
-      <div class="row mr-4">
+      <div class="row row2 mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Caráter</strong></p> 
         {{ form.personality }}
       </div>
-      <div class="row mr-5">
+      <div class="row row2 mr-5">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Atualizado em: </strong></p>
         <strong>{{ form.image }}</strong>
       </div>
-      <div class="row mr-5">
+      <div class="row row2 mr-5">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Atualizado em </strong></p> 
         {{ artifacts.updated }}
       </div>
-      <div class="row mr-5">
+      <div class="row row2 mr-5">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Coleção </strong></p> 
         {{ form.collection }}
       </div>
-      <div class="row mr-5">
+      <div class="row row2 mr-5">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Constituido de: </strong></p>
         {{ form.material }}
       </div>
-      <div class="row mr-4">
+      <div class="row row2 mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Caráter </strong></p> 
         {{ form.post_author }}
       </div>
 
-      <div class="row mr-4">
+      <div class="row row2 mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Sobre </strong></p> 
         <textarea cols="130" rows="10"></textarea>
         <!-- 
@@ -168,7 +168,7 @@
           {{ form.about|safe }} 
         -->
       </div>
-      <div class="row mr-0">
+      <div class="row row2 mr-0">
       <input type="submit" class="btn btn-success mt-4 form-control" value="Salvar" style="margin-right: 130px;">
       </div>
     </form>

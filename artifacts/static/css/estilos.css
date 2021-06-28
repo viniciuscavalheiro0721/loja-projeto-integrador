@@ -735,3 +735,7 @@ ul {
 
 
 /* ---- FIM DO RODAPÉ ----- */
+
+/* ajuste do formulario display */
+
+.row2 {display: inline-block !important; }
