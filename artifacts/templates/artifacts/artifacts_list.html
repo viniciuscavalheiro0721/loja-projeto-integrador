@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<section class = 'd-flex justify-content-center'>
+<section class = "d-flex justify-content-center">
   
 
   
@@ -15,19 +15,27 @@
 <div class="row">
 
 
-<div>
+<div class="container">
     <form method="post" action="addlogic">
       {% csrf_token %}
       <div class="col-9 search-div"></div>
-      <input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome do artefato para buscar..." >
+      <label>Buscar por artefato</label>
+      <input class="form-control" type="text" id="search" name="search" placeholder=" buscar...">
     
   
-    <li>Coleções Filtro</li>
+    <h5 class="mt-4 mb-1"><strong>Coleções Filtro</strong></h5>
+    <hr/>
      {% for collection in collection %}
-     <li> <input type="checkbox" name="checks[]" value="{{ collection.id }}" id=checkbox />{{ collection.name }}</li>
+     <li style=" list-style-type: none !important; letter-spacing: 1px;"> <input type="checkbox" name="checks[]" value="{{ collection.id }}"  style="margin-right: 5px;" id=checkbox />{{ collection.name }}</li>
 {% endfor %}
 
-      <input type="submit" name="btnsubmit" value="Filtrar">
+      <input type="submit" name="btnsubmit" value="Filtrar" class="mb-5 mt-2" style=" background-color: transparent;
+      border-color: #214196;
+      color:black;
+      margin-right: 35px;
+      border-radius: 5px;
+      padding-left: 15px;
+      padding-right: 15px;">
      </form>
   
     </div>

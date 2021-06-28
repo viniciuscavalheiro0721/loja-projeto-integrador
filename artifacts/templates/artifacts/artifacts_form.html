@@ -11,6 +11,12 @@
     <div class="form-group">
         <form method="post" enctype="multipart/form-data" class="row g-4">
         {% csrf_token %}
+        <!-- cadastro Dados Técnicos -->
+       <div class="row col-12">
+        <hr/>
+        <h4>Dados Técnicos</h4>
+        <hr/>
+      </div>
         <div class="row mr-4">
             <p style="margin-bottom: 0;"><strong>Nome</strong></p> 
             {{ form.name }}
@@ -27,6 +33,17 @@
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Usabilidade</strong></p>
           {{ form.usage }}
         </div>
+        <!-- cadastro procedencia -->
+        <div class="row col-12">
+          <hr/>
+          <h4>Procedência</h4>
+          <hr/>
+        </div>
+        <div class="row mr-4">
+          <p style="margin-bottom: 0; margin-top: 12px;"><strong>Proprietário</strong></p>
+          {{ form.owner }}
+        </div>
+       
         <div class="row mr-4">
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Estilo</strong></p> 
           {{ form.style }}
@@ -65,7 +82,12 @@
           <p style="margin-bottom: 0; margin-top: 12px;"><strong>Decoração</strong></p> 
           {{ form.decoration }}
         </div>
-     
+       <!-- cadastro dimensão -->
+       <div class="row col-12">
+        <hr/>
+        <h4>Dimensões</h4>
+        <hr/>
+      </div>
       <div class="row mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Comprimento</strong></p>
         {{ form.length }}
@@ -95,11 +117,12 @@
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Peso</strong></p> 
         {{ form.weight }}
       </div>
-      <div class="row mr-4">
-        <p style="margin-bottom: 0; margin-top: 12px;"><strong>Proprietário</strong></p>
-        {{ form.owner }}
+       <!-- cadastro aquisição -->
+       <div class="row col-12">
+        <hr/>
+        <h4>Aquisição</h4>
+        <hr/>
       </div>
-     
       <div class="row mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Data de aquisição</strong></p>
         {{ form.acqusition_date }}
@@ -139,7 +162,11 @@
 
       <div class="row mr-4">
         <p style="margin-bottom: 0; margin-top: 12px;"><strong>Sobre </strong></p> 
-        <textarea cols="130" rows="10">{{ form.about|safe }}</textarea>
+        <textarea cols="130" rows="10"></textarea>
+        <!-- 
+            ESTAVA DENTRO DO TEXTAREA, EU REMOVI - KEVIN, caso precise, colocar de volta 
+          {{ form.about|safe }} 
+        -->
       </div>
       <div class="row mr-0">
       <input type="submit" class="btn btn-success mt-4 form-control" value="Salvar" style="margin-right: 130px;">
