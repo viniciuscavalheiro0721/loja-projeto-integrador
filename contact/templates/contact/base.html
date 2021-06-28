@@ -26,20 +26,20 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link menu-navbar" href="/index" ><strong>Home</strong></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link menu-navbar" href="#"><strong>Sobre Nós</strong></a>
+            <a class="nav-link menu-navbar" href="/" ><strong>Home</strong></a>
           </li>
           <li class="nav-item">
             <a class="nav-link menu-navbar" href="/artifacts"><strong>Artefatos</strong></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link menu-navbar" href="acervo_digital.html"><strong>Acervo Digital</strong></a>
+            <a class="nav-link menu-navbar" href="/collection"><strong>Acervo Digital</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu-navbar" href="/admin"><strong>Login</strong></a>
           </li>
           {% if user.is_authenticated %}
             <li class="nav-item cor-letras-menu">
@@ -280,12 +280,11 @@
                                 <h3 style="color: #4d67ab">Links úteis</h3>
                             </div>
                             <ul>
-                              <li><a href="#">Home</a></li>
-                              <li><a href="#">Sobre nós</a></li>
+                              <li><a href="/">Home</a></li>
                               <li><a href="/artifacts">Artefatos</a></li>
-                              <li><a href="#">Coleções</a></li>
-                              <li><a href="#">Acervo Digital</a></li>
+                              <li><a href="/collection">Coleções</a></li>
                               <li><a href="#">Contato</a></li>
+                              <li><a href="/admin">Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -319,12 +318,11 @@
                     <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
                         <div class="footer-menu">
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Sobre nós</a></li>
+                                <li><a href="/">Home</a></li>
                                 <li><a href="/artifacts">Artefatos</a></li>
-                                <li><a href="#">Coleções</a></li>
-                                <li><a href="#">Acervo Digital</a></li>
+                                <li><a href="/collection">Coleções</a></li>
                                 <li><a href="#">Contato</a></li>
+                                <li><a href="/admin">Login</a></li>
                             </ul>
                         </div>
                     </div>

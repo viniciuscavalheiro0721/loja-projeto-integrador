@@ -83,7 +83,7 @@ def addlogic(request):
  artifacts_list = paginator.get_page(page)
  return render(request, 'artifacts/artifacts_list.html', {'artifacts_list':artifacts_list, 'collection':collection })
 
-@login_required
+
 def ArtifactsList(request):
 
     search = request.GET.get('search')
