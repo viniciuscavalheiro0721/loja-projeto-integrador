@@ -38,14 +38,14 @@
           <li class="nav-item">
             <a class="nav-link menu-navbar" href="/collection"><strong>Acervo Digital</strong></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link menu-navbar" href="/admin"><strong>Login</strong></a>
-          </li>
           {% if user.is_authenticated %}
             <li class="nav-item cor-letras-menu">
               <a class="nav-link menu-navbar" href="/artifacts/artifacts/add/"><strong>Cadastrar Artefato</strong></a>
             </li>
           {% endif %}
+          <li class="nav-item">
+            <a class="nav-link menu-navbar" href="/admin"><strong><i class="fas fa-user" style="font-size: 18px;"></i> Login</strong></a>
+          </li>
         </ul>
       </div>
     </div>
