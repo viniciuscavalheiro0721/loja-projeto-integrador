@@ -1,5 +1,6 @@
 $( document ).ready(function() {
 
+
     console.log("OLA MUNDO");
 
             var baseUrl   = 'http://127.0.0.1:8000/artifacts';
@@ -41,5 +42,4 @@ $( document ).ready(function() {
     document.getElementById("id_slug").value = convertToSlug(document.getElementById("id_name").value);
     document.getElementById("id_slug").readOnly = true;
         };
-        
-        });
+});

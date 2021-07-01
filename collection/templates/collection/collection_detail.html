@@ -4,13 +4,17 @@
 
 {% block content %}
 <div class="container">
+    <div class="three">
+        <h1 class="mb-5">Coleção</h1>
+      </div>
 
     <div class="detail-container">
         <h2>
-            {{ collection.name }}
+           Tipo: {{ collection.name }}
         </h2>
         <p><img src="{{ collection.image.url }}" alt="Image" height="50%" width="50%"/></p>
-        <p>{{ collection.description|safe }}</p>
+        <strong>Descrição: </strong>
+        <p> {{ collection.description|safe }}</p>
     </div>
 
 

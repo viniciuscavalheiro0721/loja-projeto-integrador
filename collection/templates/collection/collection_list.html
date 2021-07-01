@@ -5,15 +5,24 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
+    <div class="three">
+        <h1 class="mb-5">Lista das Coleções atuais no Museu</h1>
+      </div>
     <div class="list-container">
         {% for collection in collection_list %}
             <div class="items-container">
                 <a href="{{ collection.get_absolute_url }}">
                     <div class="items-wrap">
-                        <h2>{{ collection.name }}</h2>
+                        <div class="alert alert-info" role="alert">
+                            <strong style="font-size: 20px; color: black;">{{ collection.name }}</strong>
+                          </div>
+
+
                     </div>
                 </a>
             </div>
         {% endfor %}
     </div>
+</div>
 {% endblock %}

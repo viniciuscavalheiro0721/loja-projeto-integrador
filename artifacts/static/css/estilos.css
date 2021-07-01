@@ -250,7 +250,7 @@ a {
 .Card1 {
   position: relative;
   background: #fff;
-  margin: 1em;
+  margin: 2em;
   display: inline-block;
   text-align: left;
   overflow: hidden;
@@ -739,3 +739,8 @@ ul {
 /* ajuste do formulario display */
 
 .row2 {display: inline-block !important; }
+
+.items-wrap:hover{ -webkit-box-shadow: -1px 3px 16px 2px #dfdfdf; 
+   box-shadow: -1px 3px 16px 2px #dfdfdf;
+   padding-left: 1px;
+}

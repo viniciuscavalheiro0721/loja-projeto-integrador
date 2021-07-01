@@ -41,25 +41,18 @@
    </form>
   </div>
  
-      
 <div class="row">
   <div>
-
-
-
-
     {% for artifacts in artifacts_list %}
-    
-    
         <div class="Card1"> 
           <div class="photo">
             <img src="{{ artifacts.image.url }}" heigh= "100px" width="200px"/>
           </div>
             <ul class="details">
-              <h4> {{ artifacts.name }} </h4>
-              <li>Autoria: {{ artifacts.author }}</li>
-              <li>Ano: {{ artifacts.age }}</li>
-              Coleção: {{ artifacts.collection}}
+              <h4> <strong>{{ artifacts.name }} </strong></h4>
+              <li><strong>Autoria:</strong> {{ artifacts.author }}</li>
+              <li><strong>Idade:</strong> {{ artifacts.age }} anos</li>
+              <li><strong>Coleção:</strong> {{ artifacts.collection}}</li>
             </ul>  
             <div class="description">
               <div class="line">
@@ -76,15 +69,8 @@
 
             </div>
           </div>
-      
- 
-
-
-
 
     {% endfor %}
-
-
 
 </div>
 <br>
