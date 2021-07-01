@@ -22,10 +22,10 @@
     {% csrf_token %}
     <div class="col-9 search-div"></div>
     <label>Buscar por artefato</label>
-    <input class="form-control" type="text" id="search" name="search" placeholder=" buscar...">
+    <input class="form-control mb-4" type="text" id="search" name="search" placeholder=" buscar...">
   
 
-  <h7 class="mt-4 mb-1"><strong>Coleções Filtro</strong></h7>
+  <h7 class="mb-1"><strong>Coleções Filtro</strong></h7>
   <hr/>
    {% for collection in collection %}
    <li style=" list-style-type: none !important; letter-spacing: 1px;"> <input type="checkbox" name="checks[]" value="{{ collection.id }}"  style="margin-right: 5px;" id=checkbox />{{ collection.name }}</li>
@@ -88,17 +88,17 @@
 
 </div>
 <br>
-<div class="pagination" >
+<div class="pagination">
 
 
-  <span class="step-links" >
+  <span class="step-links">
     
       {% if artifacts_list.has_previous %}
           <a href="?page={{ artifacts_list.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
       {% endif %}
       
       {% if artifacts_list.paginator.num_pages %}
-      <span class="current">
+      <span class="current"  style="text-align: center !important;">
           {{ artifacts_list.number }} de {{ artifacts_list.paginator.num_pages }}
       </span>
       {% endif %}
