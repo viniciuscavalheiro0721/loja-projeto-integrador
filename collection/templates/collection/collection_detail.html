@@ -7,7 +7,7 @@
     <div class="three">
         <h1 class="mb-5">Coleção</h1>
       </div>
-
+    {% for collection in collection %}
     <div class="detail-container">
         <h2>
            Tipo: {{ collection.name }}
@@ -16,8 +16,39 @@
         <strong>Descrição: </strong>
         <p> {{ collection.description|safe }}</p>
     </div>
-
-
+    {% endfor %}
+    <div class="row">
+        <div>
+          {% for artifacts in artifacts %}
+              <div class="Card1"> 
+                <div class="photo">
+                  <img src="{{ artifacts.image.url }}" heigh= "100px" width="200px"/>
+                </div>
+                  <ul class="details">
+                    <h4> <strong>{{ artifacts.name }} </strong></h4>
+                    <li><strong>Autoria:</strong> {{ artifacts.author }}</li>
+                    <li><strong>Idade:</strong> {{ artifacts.age }} anos</li>
+                    <li><strong>Coleção:</strong> {{ artifacts.collection}}</li>
+                  </ul>  
+                  <div class="description">
+                    <div class="line">
+                      <h1 class="product_name" style="color: #3d498e !important">Museu La Salle</h1>
+                      <h1 class="product_price"></h1>
+                    </div>
+                    <h2>Descrição</h2>
+                    <p class="summary"> {{ artifacts.description|slice:"0:110" }}  </p>
+                
+                    {% if user.is_authenticated %}
+                    <a  href="{{artifacts.get_main_edit}}"><button type="button" class="btn float-left botao-cadastrar" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-top: -50px;"><i class="fas fa-plus"></i> Editar Artefato</button></a> 
+                {% endif %}
+                    <a href="{{artifacts.get_absolute_url}}">Detalhes</a>
+      
+                  </div>
+                </div>
+      
+          {% endfor %}
+      
+      </div>
 </div>
 
 {% endblock %}
