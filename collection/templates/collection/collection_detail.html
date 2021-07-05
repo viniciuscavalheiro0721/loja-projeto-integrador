@@ -9,14 +9,31 @@
       </div>
     {% for collection in collection %}
     <div class="detail-container">
-        <h2>
-           Tipo: {{ collection.name }}
-        </h2>
-        <p><img src="{{ collection.image.url }}" alt="Image" height="50%" width="50%"/></p>
-        <strong>Descrição: </strong>
-        <p> {{ collection.description|safe }}</p>
+
+        <div class="row">
+            <div class="col">
+                <h2 class="mb-4">
+                    Tipo: {{ collection.name }}
+                 </h2>
+                <img src="{{ collection.image.url }}" alt="Image" height="60%" width="60%"/>
+            </div>
+            <div class="col" style="
+            box-shadow:
+          inset 0 0 0.5em rgba(0,0,0,0.1),
+          0.2em 0.2em 0.5em rgba(0,0,0,0.2);
+          height: 60%;">
+                <p class="mt-2"><strong style="font-size: 26px; color: #25407d;" >Descrição: </strong></p>
+                <p > {{ collection.description|safe }}</p>
+            </div>
+
+
+
     </div>
     {% endfor %}
+    <div class="three">
+        <h1 class="mb-5 ">Artefatos dessa coleção:</h1> 
+      </div>
+  </div>
     <div class="row">
         <div>
           {% for artifacts in artifacts %}
@@ -45,10 +62,8 @@
       
                   </div>
                 </div>
-      
-          {% endfor %}
-      
-      </div>
+            {% endfor %}
+    </div>
+    
 </div>
-
 {% endblock %}

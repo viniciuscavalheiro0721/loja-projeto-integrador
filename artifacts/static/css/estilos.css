@@ -244,6 +244,10 @@ a {
 
 /* artefatos */
 
+a:link 
+{ 
+ text-decoration:none; 
+} 
 
 /* --- Card1 ---- */
 
@@ -743,4 +747,13 @@ ul {
 .items-wrap:hover{ -webkit-box-shadow: -1px 3px 16px 2px #dfdfdf; 
    box-shadow: -1px 3px 16px 2px #dfdfdf;
    padding-left: 1px;
+}
+
+/* paginação */
+.step-links .current {
+   /* margin-left: 5px; */
+   /* margin-right: 5px; */
+   margin-left: 560px;
+   margin-right: 560px;
+   font-weight: 600;
 }
