@@ -20,7 +20,7 @@
   <body>
 	<!-- CABEÇALHO -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" style=" height: 126px !important; background-color: #dfdfdf; opacity: 0.8; -webkit-box-shadow: 0px 3px 4px -1px #F2F0F0; 
-  box-shadow: 0px 3px 4px -1px #F2F0F0;">
+  box-shadow: 0px 3px 4px -1px #F2F0F0; -webkit-box-shadow: -1px 2px 11px 0px #4F4F4F; box-shadow: -1px 2px 11px 0px #4F4F4F;">
     <div class="container">
       <a class="navbar-brand" href="#"><img id="imagemMuseu"  src="{% static 'imagens/logo2.png' %}" alt="logo museu" style="opacity: none !important;"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,14 +38,14 @@
           <li class="nav-item">
             <a class="nav-link menu-navbar" href="/collection"><strong>Acervo Digital</strong></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link menu-navbar" href="/admin"><strong>Login</strong></a>
-          </li>
           {% if user.is_authenticated %}
             <li class="nav-item cor-letras-menu">
               <a class="nav-link menu-navbar" href="/artifacts/artifacts/add/"><strong>Cadastrar Artefato</strong></a>
             </li>
           {% endif %}
+          <li class="nav-item">
+            <a class="nav-link menu-navbar" href="/admin"><strong><i class="fas fa-user" style="font-size: 18px;"></i> Login</strong></a>
+          </li>
         </ul>
       </div>
     </div>
@@ -62,7 +62,7 @@
         <img class="d-block w-100" src="{% static 'imagens/carrossel2.jpg' %}" alt="First slide">
         <div class="carousel-caption d-none d-md-block">
           <h5 style="font-size: 65px;"><strong style="text-shadow: 0.1em 0.1em 0.2em gainsboro">Museu <span style="color: #25407d;">La Salle</span></strong></h5>
-          <p><strong style="font-size: 26px; text-shadow: 0.1em 0.1em 0.2em gainsboro">Aqui você encontra todos nossos <span style="color: #25407d;">artefatos</span> e <span style="color: #25407d;">coleções</span> que o museu atualmente abriga.</strong></p>
+          <p><strong style="font-size: 26px">Aqui você encontra todos nossos <span style="color: #25407d; text-shadow: 0.1em 0.1em 0.2em gainsboro">artefatos</span> e <span style="color: #25407d; text-shadow: 0.1em 0.1em 0.2em gainsboro">coleções</span> que o museu atualmente abriga.</strong></p>
         </div>
       </div>
       <div class="carousel-item">
