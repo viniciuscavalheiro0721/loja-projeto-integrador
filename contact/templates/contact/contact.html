@@ -3,9 +3,26 @@
 {% block title %} Contato {% endblock %}
 
 {% block content %}
+<div class="three">
+  <h1 class="mb-5" style="margin-top: -120px;">Entre em contato!</h1>
+</div>
+
   <form method="post" novalidate>
     {% csrf_token %}
-    {{ form }}
-    <button type="submit">Submit</button>
+    <!-- COMENTEI POR ENQUANTO, PARA SOMENTE RENDERIZAR O HTML -->
+    <!-- {{ form }} -->
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Seu Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">não esqueça de colocar o "@".</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Sujeito</label>
+        <input type="text" class="form-control" id="exampleInputPassword1">
+      </div>
+        <label  class="form-label">Mensagem</label>
+        <textarea class="form-control" placeholder="Digite aqui sua mensagem" id="floatingTextarea2" style="height: 100px"></textarea>
+ 
+      <button type="submit" class="btn btn-primary mt-3">Submit</button>
   </form>
 {% endblock %}

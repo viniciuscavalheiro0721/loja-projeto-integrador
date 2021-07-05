@@ -757,3 +757,7 @@ ul {
    margin-right: 560px;
    font-weight: 600;
 }
+
+/* btn colecao */
+
+.btn-colecao:hover { background-color: #214196 !important; color: white !important;}
