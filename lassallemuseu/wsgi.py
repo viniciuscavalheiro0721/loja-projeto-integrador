@@ -1,5 +1,5 @@
 """
-WSGI config for lassallemuseu project.
+WSGI config for lassalleLojaproject.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

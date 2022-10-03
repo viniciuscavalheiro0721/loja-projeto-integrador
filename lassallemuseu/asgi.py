@@ -1,5 +1,5 @@
 """
-ASGI config for lassallemuseu project.
+ASGI config for lassalleLojaproject.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

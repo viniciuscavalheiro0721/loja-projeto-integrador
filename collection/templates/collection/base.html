@@ -33,7 +33,7 @@
             <a class="nav-link menu-navbar" href="/" ><strong>Home</strong></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link menu-navbar" href="/artifacts"><strong>Artefatos</strong></a>
+            <a class="nav-link menu-navbar" href="/artifacts"><strong>Produtos</strong></a>
           </li>
           <li class="nav-item">
             <a class="nav-link menu-navbar" href="/collection"><strong>Acervo Digital</strong></a>
@@ -64,8 +64,8 @@
       <div class="carousel-item active">
         <img class="d-block w-100" src="{% static 'imagens/carrossel2.jpg' %}" alt="First slide">
         <div class="carousel-caption d-none d-md-block">
-          <h5 style="font-size: 65px;"><strong style="text-shadow: 0.1em 0.1em 0.2em gainsboro">Museu <span style="color: #25407d;">La Salle</span></strong></h5>
-          <p><strong style="font-size: 26px">Aqui você encontra todos nossos <span style="color: #25407d; text-shadow: 0.1em 0.1em 0.2em gainsboro">artefatos</span> e <span style="color: #25407d; text-shadow: 0.1em 0.1em 0.2em gainsboro">coleções</span> que o museu atualmente abriga.</strong></p>
+          <h5 style="font-size: 65px;"><strong style="text-shadow: 0.1em 0.1em 0.2em gainsboro">Loja<span style="color: #25407d;">La Salle</span></strong></h5>
+          <p><strong style="font-size: 26px">Aqui você encontra todos nossos <span style="color: #25407d; text-shadow: 0.1em 0.1em 0.2em gainsboro">Produtos</span><span style="color: #25407d; text-shadow: 0.1em 0.1em 0.2em gainsboro"></span></strong></p>
         </div>
       </div>
       <div class="carousel-item">
@@ -115,14 +115,14 @@
 								<a class="nav-link cabecalho-letras" href="#"alt="sobre o museu">Sobre Nós</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link cabecalho-letras" href="/artifacts" alt="artefatos museu">Artefatos</a>
+								<a class="nav-link cabecalho-letras" href="/artifacts" alt="Produtos museu">Produtos</a>
 							</li>
 	 						<li class="nav-item">
 								<a class="nav-link cabecalho-letras" href="acervo_digital.html" alt="acervo digital">Acervo Digital</a>
 							</li>
               {% if user.is_authenticated %}
 							  <li class="nav-item">
-	 						   <a class="nav-link cabecalho-letras" href="artifacts/add/" alt="cadastrar artefatos">Cadastrar Artefatos</a>	  
+	 						   <a class="nav-link cabecalho-letras" href="artifacts/add/" alt="cadastrar Produtos">Cadastrar Produtos</a>	  
 	 						 </li>
             {% endif %}
 						</ul>
@@ -133,7 +133,7 @@
 	</section> -->
 
     <!-- <nav class="navbar navbar-dark p-0 flex-md-nowrap shadow" style="background-color: #1d4482;">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#" style="visibility: hidden !important;">Museu Home</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#" style="visibility: hidden !important;">LojaHome</a>
       <input type="text" class="form-control form-control-primary w-75" placeholder="Procure por algo...">
      <a  href="/admin"><button type="button" class="btn btn-secondary botao-login" data-bs-target="#staticBackdrop"><i class="fas fa-user" style="margin-right: 10px;"></i>Meu Login</button></a>
 
@@ -192,7 +192,7 @@
           </li>
           <li>
             <a class="s-sidebar__nav-link sidebar-selecionado" href="/artifacts">
-              <i class="fas fa-list" style="margin-left: 10px;"></i><strong><em>Artefatos</em></strong>
+              <i class="fas fa-list" style="margin-left: 10px;"></i><strong><em>Produtos</em></strong>
             </a>
           </li>
           <li>
@@ -209,7 +209,7 @@
 
           <li>
             <a class="s-sidebar__nav-link" href="artifacts/add/">
-             <i class="fas fa-atlas" style="margin-left: 10px;"></i><strong><em>Cadastrar Artefatos (provisorio)</em></strong>
+             <i class="fas fa-atlas" style="margin-left: 10px;"></i><strong><em>Cadastrar Produtos (provisorio)</em></strong>
             </a>
           </li>
           {% endif %}
@@ -265,7 +265,7 @@
                                 <a href="index.html"><img src="{% static 'imagens/logo2.png' %}" class="img-fluid" alt="logo"></a>
                             </div>
                             <div class="footer-text">
-                                <p>Museu La Salle com artefatos e coleções históricas para você voltar ao passado de forma virtual.</p>
+                                <p>LojaLa Salle com Produtos e coleções históricas para você voltar ao passado de forma virtual.</p>
                             </div>
                             <div class="footer-social-icon">
                                 <span style="color: #4d67ab">
@@ -284,7 +284,7 @@
                             </div>
                             <ul>
                               <li><a href="/index">Home</a></li>
-                              <li><a href="/artifacts">Artefatos</a></li>
+                              <li><a href="/artifacts">Produtos</a></li>
                               <li><a href="/collection">Coleções</a></li>
                               <li><a href="/contact">Contato</a></li>
                               <li><a href="/admin">Login</a></li>
@@ -322,7 +322,7 @@
                         <div class="footer-menu">
                             <ul>
                                 <li><a href="/index">Home</a></li>
-                                <li><a href="/artifacts">Artefatos</a></li>
+                                <li><a href="/artifacts">Produtos</a></li>
                                 <li><a href="/collection">Coleções</a></li>
                                 <li><a href="/contact">Contato</a></li>
                                 <li><a href="/admin">Login</a></li>
