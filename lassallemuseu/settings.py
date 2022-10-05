@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'artifacts.apps.ArtifactsConfig',
     'collection.apps.CollectionConfig',
     'materials.apps.MaterialsConfig',
+    'products.apps.ProductsConfig',
+    'pdv.apps.PdvConfig',
     'index.apps.IndexConfig',
     'contact.apps.ContactConfig',
     'aboutus.apps.AboutusConfig',
@@ -136,9 +138,9 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-#APPEND_SLASH=False
+# APPEND_SLASH=False
 
 
-#MAIL VALIDATIONS
+# MAIL VALIDATIONS
 DEFAULT_FROM_EMAIL = 'teste@teste.com'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
