@@ -144,3 +144,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MAIL VALIDATIONS
 DEFAULT_FROM_EMAIL = 'teste@teste.com'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+LOGIN_URL = "/admin/login/"
+LOGIN_REDIRECT_URL = ""
