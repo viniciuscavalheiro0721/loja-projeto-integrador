@@ -6,5 +6,7 @@ from . import views
 app_name = "index"
 
 urlpatterns = [
-    path("", login_required(views.IndexListView.as_view()), name="list")
+    path("", login_required(views.IndexListView.as_view()), name="list"),
+    path('logout/', views.logoutnlogin, name='logout'),
+
 ]
