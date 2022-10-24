@@ -8,5 +8,11 @@
 </head>
 <body>
     <h1>CHEGUEI NA FRENTE DE CAIXA COM UM PDV ATIVO</h1>
+
+    <h3>Usuario: {{user}}</h3>
+
+    {% for pdv_active in pdv %}
+    <h3>ID PDV ativo: {{pdv_active.id_pdv}}</h3>
+    {% endfor %}
 </body>
 </html>

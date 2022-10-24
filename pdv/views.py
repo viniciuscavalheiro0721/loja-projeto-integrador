@@ -1,3 +1,5 @@
+from cgi import test
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
@@ -29,9 +31,15 @@ def index_pdv(request):
 @login_required
 # Verifica se entra no cria pdv ou na frente de caixa
 def frente_caixa(request):
-    value = Pdv.objects.filter(active_pdv=True, id_user_pdv_id=request.user.id)
-    if value:
-        return render(request, 'pdv/frente-caixa.html')
+    pdv = Pdv.objects.filter(active_pdv=True, id_user_pdv_id=request.user.id)
+    if pdv:
+        print('test')
+
+        for pdv_item in pdv:
+            print(pdv_item.active_pdv)
+
+        # return HttpResponse(pdv)
+        return render(request, 'pdv/frente-caixa.html', {'pdv': pdv})
 
     else:
         return redirect('/../pdv/pdv/add')
