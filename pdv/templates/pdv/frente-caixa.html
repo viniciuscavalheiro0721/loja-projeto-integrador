@@ -11,8 +11,9 @@
 
     <h3>Usuario: {{user}}</h3>
 
-    {% for pdv_active in pdv %}
-    <h3>ID PDV ativo: {{pdv_active.id_pdv}}</h3>
-    {% endfor %}
+   
+    <h3>ID PDV ativo: {{pdv.id_pdv}}</h3>
+    <h3>CUPOM ID: {{cupom.codigo_cupom}}</h3>
+    <h3>FORMA PGTO: {{pgto.payment_type}}</h3>
 </body>
 </html>

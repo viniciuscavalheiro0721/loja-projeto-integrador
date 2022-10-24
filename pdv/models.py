@@ -1,4 +1,5 @@
 
+from datetime import datetime
 from email.policy import default
 
 from django.contrib.auth.models import User
@@ -22,19 +23,18 @@ class forma_pgto(models.Model):
 
 class cupom(models.Model):
 
-    fecha_cupom = models.BooleanField(default=0)
-    codigo_cupom = models.CharField(
-        max_length=7, unique=True, primary_key=True)
+    fecha_cupom = models.BooleanField(default=False)
+    codigo_cupom = models.AutoField(primary_key=True)
     acrescimo = models.DecimalField(
-        max_digits=9, decimal_places=2, null=False, blank=False)
+        max_digits=9, decimal_places=2, null=False, blank=False, default=0)
     dt_cupom = models.DateTimeField(auto_now=False, auto_now_add=False)
     preco_custo = models.DecimalField(
-        max_digits=9, decimal_places=2, null=False, blank=False)
+        max_digits=9, decimal_places=2, null=False, blank=False, default=0)
     preco = models.DecimalField(
-        max_digits=9, decimal_places=2, null=False, blank=False)
-    cancela_cupom = models.BooleanField(default=0)
+        max_digits=9, decimal_places=2, null=False, blank=False, default=0)
+    cancela_cupom = models.BooleanField(default=False)
     desconto = models.DecimalField(
-        max_digits=9, decimal_places=2, null=False, blank=False)
+        max_digits=9, decimal_places=2, null=False, blank=False, default=0)
     id_pdv = models.ForeignKey('Pdv', on_delete=models.CASCADE)
     codigo_pgto = models.ForeignKey('forma_pgto', on_delete=models.CASCADE)
 
