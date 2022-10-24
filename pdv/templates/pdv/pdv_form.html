@@ -1,0 +1,41 @@
+{% extends "pdv/base.html" %}
+{% load static %}
+
+{% block title %}Abertura PDV{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="three">
+    <h1 class="mb-5">Adicionar/Editar PDV:</h1>
+  </div>
+    <div class="form-group">
+        <form method="post" enctype="multipart/form-data" class="row row2 g-4">
+        {% csrf_token %}
+        <!-- cadastro Dados Técnicos -->
+       <div class="row row2 col-12">
+        <hr/>
+        <hr/>
+      </div>
+        <div class="row row2 mr-4">
+          <p style="margin-bottom: 0; margin-top: 12px;"><strong>id_user_pdv </strong></p> 
+          {{ form.id_user_pdv }}
+          </div>
+
+            <div class="row row2 mr-4">
+            <p style="margin-bottom: 0; margin-top: 12px;"><strong>balance_pdv </strong></p>
+            {{ form.balance_pdv }}
+          </div> 
+          <div class="row row2 mr-4">
+            <p style="margin-bottom: 0; margin-top: 12px;"><strong>active_pdv  </strong></p>
+            {{ form.active_pdv  }}
+          </div> 
+   
+
+     
+      <div class="row row2 mr-0">
+      <input type="submit" class="btn btn-success mt-4 form-control" value="Salvar" style="margin-right: 130px;">
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -8,9 +8,10 @@ from django.db import models
 class Pdv(models.Model):
 
     id_user_pdv = models.ForeignKey(User, on_delete=models.CASCADE)
-    code_pdv = models.IntegerField(max_length=3, default=0, primary_key=True)
-    balance_pdv = models.FloatField(max_length=10, default=0)
-    active_pdv = models.BooleanField(default=0)
+    id_pdv = models.AutoField(primary_key=True)
+    balance_pdv = models.DecimalField(
+        max_digits=9, decimal_places=2, null=False, blank=False)
+    active_pdv = models.BooleanField(default=1)
     created = models.DateTimeField(auto_now_add=True)
 
 
@@ -34,7 +35,7 @@ class cupom(models.Model):
     cancela_cupom = models.BooleanField(default=0)
     desconto = models.DecimalField(
         max_digits=9, decimal_places=2, null=False, blank=False)
-    code_pdv = models.ForeignKey('Pdv', on_delete=models.CASCADE)
+    id_pdv = models.ForeignKey('Pdv', on_delete=models.CASCADE)
     codigo_pgto = models.ForeignKey('forma_pgto', on_delete=models.CASCADE)
 
 
