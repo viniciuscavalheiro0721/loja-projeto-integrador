@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caixa</title>
-</head>
+{% extends "pdv/base.html" %}
+{% load static %}
+
+{% block title %}Abertura PDV{% endblock %}
+
+{% block content %}
 <body>
     <h1>CHEGUEI NA FRENTE DE CAIXA COM UM PDV ATIVO</h1>
 
@@ -15,5 +13,7 @@
     <h3>ID PDV ativo: {{pdv.id_pdv}}</h3>
     <h3>CUPOM ID: {{cupom.codigo_cupom}}</h3>
     <h3>FORMA PGTO: {{pgto.payment_type}}</h3>
+
+    <iframe src="itens-cupom.html" height="200" width="300" title="Iframe Example"></iframe>
 </body>
-</html>
+{% endblock %}

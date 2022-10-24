@@ -48,3 +48,9 @@ def frente_caixa(request):
 
     else:
         return redirect('/../pdv/pdv/add')
+
+
+@login_required
+# Verifica se entra no cria pdv ou na frente de caixa
+def itens_cupom(request):
+    return render(request, 'pdv/itens-cupom.html')
