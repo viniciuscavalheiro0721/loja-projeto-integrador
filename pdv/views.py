@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 
 from .forms import PDVForm
-from .models import Pdv, cupom, forma_pgto
+from .models import Pdv, cupom, forma_pgto, item_cupom
 
 
 class PDVCreateView(LoginRequiredMixin, CreateView):
@@ -53,4 +53,18 @@ def frente_caixa(request):
 @login_required
 # Verifica se entra no cria pdv ou na frente de caixa
 def itens_cupom(request):
-    return render(request, 'pdv/itens-cupom.html')
+    pdv = Pdv.objects.filter(active_pdv=True, id_user_pdv_id=request.user.id)
+    if pdv[0]:
+        cpn = cupom.objects.filter(fecha_cupom=False, id_pdv=pdv[0].id_pdv)
+        # verifica se existe cupom aberto
+        if not cpn:
+            cpn_new = cupom.objects.create(fecha_cupom=False, acrescimo=0, preco_custo=0,
+                                           preco=0, cancela_cupom=False, desconto=0, id_pdv=pdv[0], dt_cupom=datetime.now(), codigo_pgto=forma_pgto(id=1))
+            cpn_new.save()
+            cpn = cupom.objects.filter(fecha_cupom=False, id_pdv=pdv[0].id_pdv)
+
+        itens_cpn = item_cupom.objects.filter(codigo_cupom=cpn[0].codigo_cupom)
+        return render(request, 'pdv/itens-cupom.html', {'itens': itens_cpn, 'cupom': cpn[0]})
+
+    else:
+        return redirect('/../pdv/pdv/add')
