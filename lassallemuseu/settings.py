@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'aboutus.apps.AboutusConfig',
     'tinymce',
     'ckeditor',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [

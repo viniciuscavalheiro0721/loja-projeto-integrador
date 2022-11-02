@@ -6,14 +6,12 @@
 {% block content %}
 <body>
     <h1>CHEGUEI NA FRENTE DE CAIXA COM UM PDV ATIVO</h1>
-
-    <h3>Usuario: {{user}}</h3>
-
+    <h2>PDV</h2>
    
-    <h3>ID PDV ativo: {{pdv.id_pdv}}</h3>
-    <h3>CUPOM ID: {{cupom.codigo_cupom}}</h3>
-    <h3>FORMA PGTO: {{pgto.payment_type}}</h3>
+    <h3>Usuario:{{user}}  |  ID_PDV:{{pdv.id_pdv}}  |  ID_CUPOM:{{cupom.codigo_cupom}}</h3>
 
     <iframe src="../../pdv/caixa/itens-cupom/" height="200" width="300" title="Iframe Example"></iframe>
+
+    <h3>FORMA PGTO: {{pgto.payment_type}}</h3>
 </body>
 {% endblock %}

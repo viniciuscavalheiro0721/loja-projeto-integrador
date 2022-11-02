@@ -7,11 +7,37 @@
     <title>Document</title>
 </head>
 <body>
+    <table>
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Unitario</th>
+                <th>Qtd</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
 
-    <h1>ITENS CUPOM</h1>
-{% for item in itens %}
-<h1>{{item.qtd_item}}</h1>
-{% endfor %}
+        {% load mathfilters %}
+        {% for item in itens %}
+
+            <tr>
+                <td>{{item.codigo_item}}</td>
+                <td>{{item.preco}}</td>
+                <td>{{item.qtd_item}}</td>
+                {% comment %} <td>{{item.qtd_item|mul: 2}}</td> {% endcomment %}
+
+                {% with qtd=item.qtd_item prc=item.preco %}
+                <td>{{ qtd|mul:prc }}</td>
+                {% endwith %}
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+  
+
     
 </body>
 </html>
