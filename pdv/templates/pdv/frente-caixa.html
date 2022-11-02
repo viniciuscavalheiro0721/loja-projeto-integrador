@@ -10,8 +10,34 @@
    
     <h3>Usuario:{{user}}  |  ID_PDV:{{pdv.id_pdv}}  |  ID_CUPOM:{{cupom.codigo_cupom}}</h3>
 
-    <iframe src="../../pdv/caixa/itens-cupom/" height="200" width="300" title="Iframe Example"></iframe>
+    <iframe id="list" name= "frame-list" src="../../pdv/caixa/itens-cupom/" height="200" width="300" title="Iframe Example"></iframe>
 
     <h3>FORMA PGTO: {{pgto.payment_type}}</h3>
+
+
+    <form id = "pdv" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+ 
+      <label for="total">TOTAL</label>
+      <input type="number"  name="total" id = "total" step="0.01" min="0.01">
+      <label for="codigo">Codigo</label>
+      <input  type="text" name="codigo" id = "codigo" autofocus >
+      </form>
+
+
+    <script>
+  $(function() {
+    var availableTags = [
+        {% for product in products %}
+            "{{product.code_int}}",
+        {% endfor %}
+    ];
+    console.log(availableTags)
+    $( "#codigo" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
 </body>
+<script type="text/javascript" src="{% static 'js/frente.js' %}"></script>
 {% endblock %}

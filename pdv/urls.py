@@ -9,5 +9,6 @@ urlpatterns = [
             name='pdv_add'),
     path('', views.index_pdv),
     path('caixa/', views.frente_caixa, name='caixa'),
+
     path('caixa/itens-cupom/', views.itens_cupom, name='itens-cupom'),
 ]

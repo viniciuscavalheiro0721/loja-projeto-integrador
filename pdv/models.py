@@ -40,8 +40,8 @@ class cupom(models.Model):
 
 
 class item_cupom(models.Model):
-    codigo_item = models.CharField(
-        max_length=7, unique=True, primary_key=True)
+    codigo_item = models.AutoField(primary_key=True)
+    description = models.CharField(max_length=200, default="", unique=False)
     preco = models.DecimalField(
         max_digits=9, decimal_places=2, null=False, blank=False)
     limite_cliente = models.IntegerField(null=True)
