@@ -12,19 +12,39 @@
 
     <iframe id="list" name= "frame-list" src="../../pdv/caixa/itens-cupom/" height="300" width="500" title="Iframe Example"></iframe>
 
-    <h3>FORMA PGTO: {{pgto.payment_type}}</h3>
 
-
-    <form id = "pdv" method="post" enctype="multipart/form-data">
+<div>
+    <form id = "pdv" method="post" >
       {% csrf_token %}
- 
+
+      <h3>
+        <label for="pgto">FORMA PGTO:</label>
+        <select name="pgto" id="pgto" value = {{cupom.codigo_pgto_id}}>
+          
+          {% for pgto in pgtos %}
+          <option value={{pgto.id}}>{{pgto.payment_type}}</option>
+          {% endfor %}
+         
+        </select>  
+        
       <label for="total">TOTAL</label>
       <input type="number"  name="total" id = "total" step="0.01" min="0.01">
       <label for="codigo">Codigo</label>
-      <input  type="text" name="codigo" id = "codigo" autofocus >
-      </form>
+      <input  type="text" name="codigo" id = "codigo" value = "" autofocus >
+      <input type="hidden" id="btn" name="btn" value="Inserir" />
 
+      </form></h2>
+    </div>
+      <div>
 
+        <form id = "btns" method="post" >
+          {% csrf_token %}
+          <input type="hidden"  name="btn" value="Cancelar"/>
+          <input type="button"  name="btn" value="Cancelar" onClick="alerta(this)">
+          <input type="submit"  name="btn" value="Finalizar" class="">
+          
+        </form>
+      </div>
     <script>
   $(function() {
     var availableTags = [
@@ -37,6 +57,15 @@
       source: availableTags
     });
   } );
+
+  function alerta(selectObject){
+    if (confirm("Tem certeza que deseja cancelar esse cupom?")) {
+    
+      $( "#btns" ).submit();
+    }
+        
+  }
+
   </script>
 </body>
 <script type="text/javascript" src="{% static 'js/frente.js' %}"></script>

@@ -48,22 +48,29 @@ def frente_caixa(request):
             cpn = cupom.objects.filter(fecha_cupom=False, id_pdv=pdv[0].id_pdv)
             # return HttpResponse(pdv)
 
-        pgto = forma_pgto.objects.get(id=cpn[0].codigo_pgto_id)
+        pgto = forma_pgto.objects.all()
         pdts = Products.objects.all()
         if request.method == 'POST':
+            if request.POST['btn'] == "Inserir":
+                prod = Products.objects.filter(code_int=request.POST['codigo'])
+                if prod:
+                    item = item_cupom.objects.create(
+                        preco=prod[0].sale_price, limite_cliente=1, qtd_item=1, codigo_cupom_id=cpn[0].codigo_cupom, codigo_int_id=prod[0].code_int, description=prod[0].description)
 
-            prod = Products.objects.filter(code_int=request.POST['codigo'])
-            if prod:
-                item = item_cupom.objects.create(
-                    preco=prod[0].sale_price, limite_cliente=1, qtd_item=1, codigo_cupom_id=10, codigo_int_id=prod[0].code_int, description=prod[0].description)
+                # alterar o total na tabela cupom campo "preco"
+                cpn_up = cupom.objects.filter(fecha_cupom=False, id_pdv=pdv[0].id_pdv).update(
+                    preco=request.POST['total'], codigo_pgto_id=2)
 
-            # alterar o total na tabela cupom campo "preco"
-            # request.POST['total']
+                item.save()
+            if request.POST['btn'] == "Finalizar":
+                ...
+            if request.POST['btn'] == "Cancelar":
+                cpn_up = cupom.objects.filter(fecha_cupom=False, id_pdv=pdv[0].id_pdv).update(
+                    fecha_cupom=True, cancela_cupom=True)
 
-            item.save()
             return redirect('/../pdv/caixa')
 
-        return render(request, 'pdv/frente-caixa.html', {'products': pdts, 'pdv': pdv[0], 'cupom': cpn[0], 'pgto': pgto})
+        return render(request, 'pdv/frente-caixa.html', {'products': pdts, 'pdv': pdv[0], 'cupom': cpn[0], 'pgtos': pgto})
 
     else:
         return redirect('/../pdv/pdv/add')
@@ -86,9 +93,13 @@ def itens_cupom(request):
         itens_cpn = item_cupom.objects.filter(codigo_cupom=cpn[0].codigo_cupom)
 
         if request.method == 'POST':
-            up_item = item_cupom.objects.filter(
-                codigo_item=request.POST['id_item']).update(qtd_item=request.POST['valqtd'])
-
+            if request.POST['valqtd'] != '0':
+                up_item = item_cupom.objects.filter(
+                    codigo_item=request.POST['id_item']).update(qtd_item=request.POST['valqtd'])
+            else:
+                del_item = item_cupom.objects.get(
+                    codigo_item=request.POST['id_item'])
+                del_item.delete()
             return redirect('/../pdv/caixa/itens-cupom')
         return render(request, 'pdv/itens-cupom.html', {'itens': itens_cpn, 'cupom': cpn[0]})
 
