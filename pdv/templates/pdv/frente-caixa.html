@@ -5,7 +5,7 @@
 
 {% block content %}
 <body>
-    <h1>CHEGUEI NA FRENTE DE CAIXA COM UM PDV ATIVO</h1>
+
     <h2>PDV</h2>
    
     <h3>Usuario:{{user}}  |  ID_PDV:{{pdv.id_pdv}}  |  ID_CUPOM:{{cupom.codigo_cupom}}</h3>
@@ -19,7 +19,7 @@
 
       <h3>
         <label for="pgto">FORMA PGTO:</label>
-        <select name="pgto" id="pgto" value = {{cupom.codigo_pgto_id}}>
+        <select name="pgto" id="pgto" >
           
           {% for pgto in pgtos %}
           <option value={{pgto.id}}>{{pgto.payment_type}}</option>
@@ -65,6 +65,9 @@
     }
         
   }
+
+
+ document.getElementById("pgto").value = {{cupom.codigo_pgto_id}}
 
   </script>
 </body>

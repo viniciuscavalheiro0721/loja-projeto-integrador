@@ -56,12 +56,11 @@ def frente_caixa(request):
                 if prod:
                     item = item_cupom.objects.create(
                         preco=prod[0].sale_price, limite_cliente=1, qtd_item=1, codigo_cupom_id=cpn[0].codigo_cupom, codigo_int_id=prod[0].code_int, description=prod[0].description)
-
+                    item.save()
                 # alterar o total na tabela cupom campo "preco"
                 cpn_up = cupom.objects.filter(fecha_cupom=False, id_pdv=pdv[0].id_pdv).update(
-                    preco=request.POST['total'], codigo_pgto_id=2)
+                    preco=request.POST['total'], codigo_pgto_id=forma_pgto(id=request.POST['pgto']))
 
-                item.save()
             if request.POST['btn'] == "Finalizar":
                 ...
             if request.POST['btn'] == "Cancelar":
