@@ -6,45 +6,50 @@
 {% block content %}
 <body>
 
-    <h2>PDV</h2>
-   
-    <h3>Usuario:{{user}}  |  ID_PDV:{{pdv.id_pdv}}  |  ID_CUPOM:{{cupom.codigo_cupom}}</h3>
-
-    <iframe id="list" name= "frame-list" src="../../pdv/caixa/itens-cupom/" height="300" width="500" title="Iframe Example"></iframe>
-
-
-<div>
-    <form id = "pdv" method="post" >
-      {% csrf_token %}
-
-      <h3>
-        <label for="pgto">FORMA PGTO:</label>
-        <select name="pgto" id="pgto" >
-          
-          {% for pgto in pgtos %}
-          <option value={{pgto.id}}>{{pgto.payment_type}}</option>
-          {% endfor %}
-         
-        </select>  
-        
-      <label for="total">TOTAL</label>
-      <input type="number"  name="total" id = "total" step="0.01" min="0.01">
-      <label for="codigo">Codigo</label>
-      <input  type="text" name="codigo" id = "codigo" value = "" autofocus >
-      <input type="hidden" id="btn" name="btn" value="Inserir" />
-
-      </form></h2>
-    </div>
+  <div class="container justify-content-center">
       <div>
-
-        <form id = "btns" method="post" >
-          {% csrf_token %}
-          <input type="hidden"  name="btn" value="Cancelar"/>
-          <input type="button"  name="btn" value="Cancelar" onClick="alerta(this)">
-          <input type="submit"  name="btn" value="Finalizar" class="">
-          
-        </form>
+        <h2>PDV: {{pdv.id_pdv}}</h2>
+        <h3>Usuario:{{user}} </h3>
+        <h3>ID_CUPOM:{{cupom.codigo_cupom}}</h3>
       </div>
+
+        <iframe id="list" name= "frame-list" src="../../pdv/caixa/itens-cupom/" height="300px" width="100%" title="Iframe Example"></iframe>
+      <div>
+        <form id = "pdv" method="post" >
+          {% csrf_token %}
+    
+          <h5>
+            <label for="pgto">FORMA PGTO:</label>
+            <select name="pgto" id="pgto" >
+              
+              {% for pgto in pgtos %}
+              <option value={{pgto.id}}>{{pgto.payment_type}}</option>
+              {% endfor %}
+             
+            </select>  
+            
+          <label for="total">TOTAL</label>
+          <input type="number"  name="total" id = "total" step="0.01" min="0.01">
+          <label for="codigo">Codigo</label>
+          <input  type="text" name="codigo" id = "codigo" value = "" autofocus >
+          <input type="hidden" id="btn" name="btn" value="Inserir" />
+    
+          </form></h5>
+        </div>
+          <div>
+    
+            <form id = "btns" method="post" >
+              {% csrf_token %}
+              <input type="hidden"  name="btn" value="Cancelar"/>
+              <input type="button" class="btn btn-danger" name="btn" value="Cancelar" onClick="alerta(this)">
+              <input type="submit" class="btn btn-success" name="btn" value="Finalizar" class="">
+            </form>
+          </div>
+  </div>
+
+    {% include "pdv/modal-confirm.html" %}
+</div>
+
     <script>
   $(function() {
     var availableTags = [
