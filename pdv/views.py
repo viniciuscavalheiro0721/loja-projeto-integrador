@@ -7,7 +7,7 @@ from webbrowser import get
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
@@ -61,6 +61,7 @@ def frente_caixa(request):
             # request.POST['total']
 
             item.save()
+            return redirect('/../pdv/caixa')
 
         return render(request, 'pdv/frente-caixa.html', {'products': pdts, 'pdv': pdv[0], 'cupom': cpn[0], 'pgto': pgto})
 
@@ -71,6 +72,7 @@ def frente_caixa(request):
 @login_required
 # Verifica se entra no cria pdv ou na frente de caixa
 def itens_cupom(request):
+
     pdv = Pdv.objects.filter(active_pdv=True, id_user_pdv_id=request.user.id)
     if pdv[0]:
         cpn = cupom.objects.filter(fecha_cupom=False, id_pdv=pdv[0].id_pdv)
@@ -82,6 +84,12 @@ def itens_cupom(request):
             cpn = cupom.objects.filter(fecha_cupom=False, id_pdv=pdv[0].id_pdv)
 
         itens_cpn = item_cupom.objects.filter(codigo_cupom=cpn[0].codigo_cupom)
+
+        if request.method == 'POST':
+            up_item = item_cupom.objects.filter(
+                codigo_item=request.POST['id_item']).update(qtd_item=request.POST['valqtd'])
+
+            return redirect('/../pdv/caixa/itens-cupom')
         return render(request, 'pdv/itens-cupom.html', {'itens': itens_cpn, 'cupom': cpn[0]})
 
     else:

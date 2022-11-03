@@ -45,7 +45,8 @@ class item_cupom(models.Model):
     preco = models.DecimalField(
         max_digits=9, decimal_places=2, null=False, blank=False)
     limite_cliente = models.IntegerField(null=True)
-    qtd_item = models.FloatField(max_length=5, default=0)
+    qtd_item = models.IntegerField(
+        null=False, blank=False, default=0)
     codigo_cupom = models.ForeignKey('cupom', on_delete=models.CASCADE)
     codigo_int = models.ForeignKey(
         'products.products', on_delete=models.CASCADE)
