@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
 
-    console.log("OLA MUNDO");
+    console.log("OLA MUNDO33");
 
             var baseUrl   = 'http://127.0.0.1:8000/artifacts';
             var filter     = $('#filter');

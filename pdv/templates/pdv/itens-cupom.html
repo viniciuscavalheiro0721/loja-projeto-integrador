@@ -66,8 +66,14 @@
     {
         sum += parseFloat(elements[i].innerHTML.replace(/,/,'.'));
     };
-    parent.document.getElementById("total").value = sum
-   
+
+    acres = parseFloat(parent.document.getElementById("acres").value)
+    desc = parseFloat(parent.document.getElementById("desc").value)
+
+    res = (sum + acres) - desc
+    parent.document.getElementById("sub-total").value = sum.toFixed(2)
+    parent.document.getElementById("total").value = res.toFixed(2)
+
     document.getElementById('table_'+id).submit()
 
 };</script>

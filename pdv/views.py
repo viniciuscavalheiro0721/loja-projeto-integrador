@@ -2,6 +2,7 @@ import json
 from cgi import test
 from datetime import datetime
 from itertools import product
+from unicodedata import decimal
 from webbrowser import get
 
 from django.contrib.auth.decorators import login_required
@@ -52,17 +53,31 @@ def frente_caixa(request):
         pdts = Products.objects.all()
         if request.method == 'POST':
             if request.POST['btn'] == "Inserir":
-                prod = Products.objects.filter(code_int=request.POST['codigo'])
+
+                if request.POST['codigo'] == "":
+                    cod_int = 0
+                else:
+                    cod_int = request.POST['codigo']
+                prod = Products.objects.filter(code_int=cod_int)
                 if prod:
                     item = item_cupom.objects.create(
                         preco=prod[0].sale_price, limite_cliente=1, qtd_item=1, codigo_cupom_id=cpn[0].codigo_cupom, codigo_int_id=prod[0].code_int, description=prod[0].description)
                     item.save()
                 # alterar o total na tabela cupom campo "preco"
                 cpn_up = cupom.objects.filter(fecha_cupom=False, id_pdv=pdv[0].id_pdv).update(
-                    preco=request.POST['total'], codigo_pgto_id=forma_pgto(id=request.POST['pgto']))
+                    preco=request.POST['total'], codigo_pgto_id=forma_pgto(id=request.POST['pgto']), acrescimo=request.POST['acres'], desconto=request.POST['desc'])
 
             if request.POST['btn'] == "Finalizar":
-                ...
+
+                balance = float(pdv[0].balance_pdv) + \
+                    float(request.POST['total-fin'])
+                cpn_up = cupom.objects.filter(fecha_cupom=False, id_pdv=pdv[0].id_pdv).update(
+                    preco=request.POST['total-fin'], codigo_pgto_id=forma_pgto(id=request.POST['pgto']), fecha_cupom=True)
+                pdv_up = Pdv.objects.filter(
+                    id_pdv=request.POST['id-pdv'], active_pdv=True, id_user_pdv_id=User(id=request.POST['user'])).update(
+                    balance_pdv=balance
+                )
+
             if request.POST['btn'] == "Cancelar":
                 cpn_up = cupom.objects.filter(fecha_cupom=False, id_pdv=pdv[0].id_pdv).update(
                     fecha_cupom=True, cancela_cupom=True)
@@ -75,7 +90,7 @@ def frente_caixa(request):
         return redirect('/../pdv/pdv/add')
 
 
-@login_required
+@ login_required
 # Verifica se entra no cria pdv ou na frente de caixa
 def itens_cupom(request):
 
@@ -87,7 +102,8 @@ def itens_cupom(request):
             cpn_new = cupom.objects.create(fecha_cupom=False, acrescimo=0, preco_custo=0,
                                            preco=0, cancela_cupom=False, desconto=0, id_pdv=pdv[0], dt_cupom=datetime.now(), codigo_pgto=forma_pgto(id=1))
             cpn_new.save()
-            cpn = cupom.objects.filter(fecha_cupom=False, id_pdv=pdv[0].id_pdv)
+            cpn = cupom.objects.filter(
+                fecha_cupom=False, id_pdv=pdv[0].id_pdv)
 
         itens_cpn = item_cupom.objects.filter(codigo_cupom=cpn[0].codigo_cupom)
 

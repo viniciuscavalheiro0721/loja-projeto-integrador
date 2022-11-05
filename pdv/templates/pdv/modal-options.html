@@ -1,0 +1,97 @@
+
+<div class="container">
+
+  <!-- Trigger the modal with a button -->
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+     
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          
+          <h4><span class="glyphicon glyphicon-share-alt pull-left"></span> Finalizar</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form  id = "fecha_cpn" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden"  name="btn" value="Finalizar">
+            <input type="hidden"  name="id-pdv" value={{pdv.id_pdv}}>
+            <input type="hidden"  name="user" value={{user.id}}>
+            <input type="hidden"  name="pgto" value={{cupom.codigo_pgto_id}}>
+            <div class="form-group">
+              <label for="total-fin">TOTAL</label>
+              <input type="number"  name="total-fin" id = "total-fin" min="0.00">
+            </div>
+            <div>
+              <label for="valor-pg">VALOR PAGO</label>
+              <input type="number"  name="valor-pg" id = "valor-pg"  min="0.00">
+            </div>
+          <div class="form-group">
+            <label for="troc">TROCO</label>
+            <input type="number"  name="troc" id = "troc"  min="0.00">
+          </div>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-danger btn-default " data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+
+              <button type="button" class="btn btn-success pull-right " onClick="fechaCupom()" id="salvar"><span class="glyphicon glyphicon-ok"></span> Salvar</button>
+            </div>
+ 
+          </form>
+        </div>
+
+      </div>
+      
+    </div>
+  </div> 
+</div>
+ 
+<script>
+$(document).ready(function(){
+
+  document.addEventListener("keypress", function(e) {
+    if(e.key === 'Enter') {
+      if($('#myModal').hasClass('show')){
+        var btn = document.querySelector("#salvar");
+      
+      btn.click();
+      }else{
+
+        var btn = document.querySelector("#myBtn");
+      
+        btn.click();
+
+      }
+    }
+  });
+
+
+
+
+
+  $("#myBtn").click(function(){
+    document.getElementById("total-fin").value = document.getElementById("total").value
+
+    x = document.getElementById("pgto").value
+    
+    if (x == 4){
+      document.getElementById("valor-pg").value = 0
+      document.getElementById("troc").value = 0
+    }else{
+      document.getElementById("valor-pg").value = document.getElementById("total").value
+      pg = parseFloat(document.getElementById("valor-pg").value)
+      tot = parseFloat(document.getElementById("total").value)
+  
+      document.getElementById("desc").value = y.toFixed(2)
+      document.getElementById("troc").value = (pg - tot).toFixed(2)
+    }
+
+
+    
+    $("#myModal").modal();
+  });
+});
+</script>

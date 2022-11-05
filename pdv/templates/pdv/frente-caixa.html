@@ -28,10 +28,25 @@
              
             </select>  
             
-          <label for="total">TOTAL</label>
-          <input type="number"  name="total" id = "total" step="0.01" min="0.01">
-          <label for="codigo">Codigo</label>
-          <input  type="text" name="codigo" id = "codigo" value = "" autofocus >
+          <div class="form-group">
+            <label for="acres">ACRESCIMO</label>
+            <input type="number"  name = "acres" id="acres" min="0.00">
+            <label for="sub-total">SUBTOTAL</label>
+            <input type="number"  name="sub-total" id = "sub-total"  min="0.00">
+
+          </div>
+
+          <div class="form-group">
+              <label for="desc">DESCONTO</label>
+              <input type="number"  name="desc" id = "desc"  min="0.00">
+              <label for="total">TOTAL</label>
+              <input type="number"  name="total" id = "total"  min="0.00">
+
+          </div>
+          <div class="form-group">
+            <label for="codigo">CODIGO</label>
+            <input  type="text" name="codigo" id = "codigo" value = "" autofocus >
+          </div>
           <input type="hidden" id="btn" name="btn" value="Inserir" />
     
           </form></h5>
@@ -41,13 +56,13 @@
             <form id = "btns" method="post" >
               {% csrf_token %}
               <input type="hidden"  name="btn" value="Cancelar"/>
-              <input type="button" class="btn btn-danger" name="btn" value="Cancelar" onClick="alerta(this)">
-              <input type="submit" class="btn btn-success" name="btn" value="Finalizar" class="">
+              <input type="button" class="btn btn-danger" name="btn" value="Cancelar" onClick="alerta()">
+              <button type="button" class="btn btn-success " id="myBtn">Finalizar</button>
             </form>
           </div>
   </div>
 
-    {% include "pdv/modal-confirm.html" %}
+    {% include "pdv/modal-options.html" %}
 </div>
 
     <script>
@@ -63,7 +78,8 @@
     });
   } );
 
-  function alerta(selectObject){
+
+  function alerta(){
     if (confirm("Tem certeza que deseja cancelar esse cupom?")) {
     
       $( "#btns" ).submit();
@@ -71,9 +87,29 @@
         
   }
 
+  function fechaCupom(){
+    x = parseFloat(document.getElementById("pgto").value)
+    pg = parseFloat(document.getElementById("valor-pg").value)
+    tot = parseFloat(document.getElementById("total").value)
+    
+
+    if (x != 4){
+      $( "#fecha_cpn" ).submit();
+
+    }else if (pg < tot){
+      alert("Valor pago é menor que o total devido!!!")
+    }else{
+      $( "#fecha_cpn" ).submit();
+    }
+
+  }
+
 
  document.getElementById("pgto").value = {{cupom.codigo_pgto_id}}
-
+ x = {{cupom.acrescimo}}
+ y = {{cupom.desconto}}
+ document.getElementById("acres").value = x.toFixed(2)
+ document.getElementById("desc").value = y.toFixed(2)
   </script>
 </body>
 <script type="text/javascript" src="{% static 'js/frente.js' %}"></script>
