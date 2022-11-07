@@ -4,22 +4,93 @@
 {% block title %}Abertura PDV{% endblock %}
 
 {% block content %}
+
+<style>
+
+.form#pdv{
+
+  display: inline-flex;
+}
+.borda{
+
+    
+    margin: 10px 0;
+    border: 2px solid black;
+    padding: 10px;
+   
+}
+
+.borda-iframe{
+
+
+  margin: 10px 0;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+
+#DivRodape{
+  position: absolute;
+  top: auto;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  width: 100%;
+  background-color:#004085;
+}
+#DivLateral{
+  position:relative;
+  border-width:2px;
+  width:55%;
+  height: 100%;
+  float: left;
+}
+
+
+#DivA{
+  position: relative;
+  border-width:2px;
+  width: 45%;
+  height: 100%;
+  left:0px;
+  float: left;
+}
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+} 
+.group:after {
+  clear: both;
+}
+.group {
+   zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+.campos-main{
+
+  width: 50%;
+}
+</style>
 <body>
 
-  <div class="container justify-content-center">
-      <div>
-        <h2>PDV: {{pdv.id_pdv}}</h2>
-        <h3>Usuario:{{user}} </h3>
-        <h3>ID_CUPOM:{{cupom.codigo_cupom}}</h3>
-      </div>
 
-        <iframe id="list" name= "frame-list" src="../../pdv/caixa/itens-cupom/" height="300px" width="100%" title="Iframe Example"></iframe>
-      <div>
-        <form id = "pdv" method="post" >
-          {% csrf_token %}
-    
-          <h5>
-            <label for="pgto">FORMA PGTO:</label>
+
+<div class="borda group">
+
+
+  <div id="DivA">
+
+      
+        <label>PDV: {{pdv.id_pdv}}</Label><br>
+        <Label>OPERADOR:{{user}}</Label><br>
+        <Label>ID_CUPOM:{{cupom.codigo_cupom}}</Label>
+      
+      <form id = "pdv" method="post" >
+        {% csrf_token %}
+  
+          <label> CODIGO:<input  class = "justify-content-left campos-main" type="text" name="codigo" id = "codigo" value = "" autofocus ></label>
+          <label for="pgto">FORMA PGTO:
             <select name="pgto" id="pgto" >
               
               {% for pgto in pgtos %}
@@ -27,40 +98,33 @@
               {% endfor %}
              
             </select>  
-            
-          <div class="form-group">
-            <label for="acres">ACRESCIMO</label>
-            <input type="number"  name = "acres" id="acres" min="0.00">
-            <label for="sub-total">SUBTOTAL</label>
-            <input type="number"  name="sub-total" id = "sub-total"  min="0.00">
-
-          </div>
-
-          <div class="form-group">
-              <label for="desc">DESCONTO</label>
-              <input type="number"  name="desc" id = "desc"  min="0.00">
-              <label for="total">TOTAL</label>
-              <input type="number"  name="total" id = "total"  min="0.00">
-
-          </div>
-          <div class="form-group">
-            <label for="codigo">CODIGO</label>
-            <input  type="text" name="codigo" id = "codigo" value = "" autofocus >
-          </div>
+          </label>
+         
+          <label> DESCONTO:<input class = "justify-content-left campos-main" type="number"  name="desc" id = "desc"  min="0.00"></label>
+          <label> ACRESCIMO:<input class = "justify-content-left campos-main" type="number"  name = "acres" id="acres" min="0.00"></label>
+          <label> SUB TOTAL:<input class = "justify-content-left campos-main" type="number"  name="sub-total" id = "sub-total"  min="0.00"></label>  
+          <label> TOTAL:<input class = "justify-content-left campos-main" type="number"  name="total" id = "total"  min="0.00"></label>        
+          
           <input type="hidden" id="btn" name="btn" value="Inserir" />
-    
-          </form></h5>
-        </div>
-          <div>
-    
-            <form id = "btns" method="post" >
-              {% csrf_token %}
-              <input type="hidden"  name="btn" value="Cancelar"/>
-              <input type="button" class="btn btn-danger" name="btn" value="Cancelar" onClick="alerta()">
-              <button type="button" class="btn btn-success " id="myBtn">Finalizar</button>
-            </form>
-          </div>
-  </div>
+
+  
+      </form>
+      
+  
+          <form id = "btns" method="post" >
+            {% csrf_token %}
+            <input type="hidden"  name="btn" value="Cancelar"/>
+            <input type="button" class="btn btn-danger" name="btn" value="Cancelar" onClick="alerta()">
+            <button type="button" class="btn btn-success " id="myBtn">Finalizar</button>
+          </form>
+
+      
+    </div>
+    <div id="DivLateral" class = "borda-iframe">
+
+      <iframe  class = "justify-content-left" id="list" name= "frame-list" src="../../pdv/caixa/itens-cupom/" height="300px" width="100%" title="Iframe Example"></iframe>
+    </div>
+
 
     {% include "pdv/modal-options.html" %}
 </div>

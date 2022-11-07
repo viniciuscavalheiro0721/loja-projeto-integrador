@@ -8,8 +8,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
+
+    <style>
+        .Total-Price{
+
+            width: 18%;
+        }
+
+        .Codigo-Int{
+
+            width: 15%;
+        }
+
+        .Description{
+
+            width: 40%;
+        }
+
+        .Preco{
+
+            width: 15%;
+        }
+
+        .qtd{
+
+            width: 12%;
+        }
+        .qtd-Item{
+
+            width: 100%;
+        }
+
+        table.table.table-sm.table-striped.table-hover.table-bordered {
+            width: 100%;
+        }
+
+    </style>
 </head>
 <body>
+
+    <div>
     
     <table class="table table-sm table-striped table-hover table-bordered">
         <thead>
@@ -30,11 +68,11 @@
             {% csrf_token %}
             <tr >
                 <input type="hidden" id="id_item" name="id_item" value={{item.codigo_item}} />
-                <td id = "cod_{{item.codigo_item}}" ="itemTable  itemTable-cod">{{item.codigo_int_id}}</td>
-                <td id = "des_{{item.codigo_item}}" class="itemTable  itemTable-Desc">{{item.description}}</td>
-                <td id = "uni_{{item.codigo_item}}"class="itemTable  itemTable-Uni-Price">{{item.preco}}</td>
+                <td id = "cod_{{item.codigo_item}}" class="Codigo-Int itemTable  itemTable-cod">{{item.codigo_int_id}}</td>
+                <td id = "des_{{item.codigo_item}}" class="Description itemTable  itemTable-Desc">{{item.description}}</td>
+                <td id = "uni_{{item.codigo_item}}"class="Preco itemTable  itemTable-Uni-Price">{{item.preco}}</td>
                 
-                <td id = "qtd_{{item.codigo_item}}"><input onchange="qtdChange(this, {{item.codigo_item}})" type="number" name="valqtd"  min="0" id="valqtd" value = {{item.qtd_item}}></td>
+                <td id = "qtd_{{item.codigo_item}}" class="qtd itemTable  itemTable-cod"><input class = "qtd-Item" onchange="qtdChange(this, {{item.codigo_item}})" type="number" name="valqtd"  min="0" id="valqtd" value = {{item.qtd_item}}></td>
                 {% comment %} <td>{{item.qtd_item|mul: 2}}</td> {% endcomment %}
 
                 {% with qtd=item.qtd_item prc=item.preco %}
@@ -47,7 +85,7 @@
 
         </tbody>
     </table>
-    
+</div>
 
     
 </body>
